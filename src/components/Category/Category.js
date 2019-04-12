@@ -191,7 +191,7 @@ class Category extends Component {
                 <div class="col-sm-12">
                   <section class="panel">
                     <header class="panel-heading">
-                      <h5 className="new">All Stories</h5>
+                      <h5 className="new">All Categories</h5>
                       <span class="tools pull-right">
                         <a href="javascript:;" class="fa fa-chevron-down" />
                       </span>
