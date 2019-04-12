@@ -1,20 +1,94 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import axios from "axios";
+
+const token = localStorage.getItem("token");
 
 class CreateStory extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  state = {
+    categories: [],
+    story: "",
+    image: null,
+    title: "",
+    category: "",
+    me: ""
+  };
+
+  componentDidMount() {
+    axios
+      .get(`https://dragon-legend-5.herokuapp.com/api/v1/category/all`, {
+        headers: { Authorization: token }
+      })
+      .then(res => {
+        this.setState({ categories: res.data.data });
+      });
+    this.getUser();
   }
 
-  logOut = () => {
-    localStorage.clear("token");
-    this.props.history.replace("/login");
+  getUser = () => {
+    let user = this.parseJwt(token);
+    let userId = user._id;
+    console.log(userId);
+    axios
+      .get(
+        `https://dragon-legend-5.herokuapp.com/api/v1/user/profile/${userId}`
+      )
+      .then(res => {
+        console.log(res.data.data);
+        this.setState({ me: res.data.data });
+      });
+  };
+
+  parseJwt = token => {
+    if (!token) {
+      return;
+    }
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace("-", "+").replace("_", "/");
+    return JSON.parse(window.atob(base64));
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleImageChange = e => {
+    e.preventDefault();
+    let imageFile = e.target.files[0];
+    this.setState({ [e.target.name]: imageFile });
+  };
+
+  submitHandler = e => {
+    e.preventDefault();
+    const { story, image, title, category } = this.state;
+    const formData = new FormData();
+    formData.set("title", title);
+    formData.set("category", category);
+    formData.set("story", story);
+    formData.append("image", image);
+    axios({
+      method: "post",
+      url: "https://dragon-legend-5.herokuapp.com/api/v1/story/create",
+      data: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: token
+      }
+    }).then(res => {
+      console.log(res);
+      alert(`Successfully posted your story`);
+    });
   };
 
   render() {
+    let { me } = this.state;
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Create Story</title>
+        </Helmet>
         <section id="container">
           {/*header start */}
           <header class="header fixed-top clearfix">
@@ -35,11 +109,8 @@ class CreateStory extends Component {
                 {/*user login dropdown start */}
                 <li class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="/">
-                    <img
-                      alt=""
-                      src={require("../../images/avatar1_small.jpg")}
-                    />
-                    <span class="username">John Doe</span>
+                    <img alt="" src={me.image} />
+                    <span class="username">{me.name}</span>
                     <b class="caret" />
                   </a>
                 </li>
@@ -60,10 +131,10 @@ class CreateStory extends Component {
                   </a>
                 </li>
                 <li class="sub-menu">
-                  <a href="javascript:;">
+                  <Link to="/category">
                     <i class="fa fa-laptop" />
                     <span>Categories</span>
-                  </a>
+                  </Link>
                   <ul class="sub">
                     <li>
                       <a href="#">Create</a>
@@ -74,7 +145,7 @@ class CreateStory extends Component {
                   </ul>
                 </li>
                 <li class="sub-menu">
-                  <Link to="dashboard/">
+                  <Link to="/dashboard">
                     <i class="fa fa-book" />
                     <span>Stories</span>
                   </Link>
@@ -100,17 +171,10 @@ class CreateStory extends Component {
                   </Link>
                 </li>
                 <li>
-                  <button
-                    style={{
-                      marginLeft: "15px",
-                      backgroundColor: "black",
-                      color: "white"
-                    }}
-                    onClick={this.logOut}
-                  >
+                  <Link to="/">
                     <i class="fa fa-user" />
                     <span>Log Out</span>
-                  </button>
+                  </Link>
                 </li>
               </ul>
               {/* sidebar menu end*/}
@@ -126,50 +190,70 @@ class CreateStory extends Component {
               <div class="row">
                 <div class="col-lg-12">
                   <section class="panel">
-                    <header class="panel-heading">Add Story</header>
+                    <header class="panel-heading new">Add Story</header>
                     <div class="panel-body">
                       <div class="position-center">
-                        <form>
+                        <form
+                          encType="multipart/form-data"
+                          onSubmit={this.submitHandler}
+                        >
                           <div class="form-group">
-                            <label for="exampleInputEmail1">Title</label>
+                            <label for="title">Title</label>
                             <input
                               type="text"
                               class="form-control"
-                              id="exampleInputEmail1"
-                              placeholder="Enter email"
+                              id="title"
+                              name="title"
+                              placeholder="Title"
+                              value={this.state.title}
+                              onChange={this.handleChange}
+                              required
                             />
                           </div>
                           <div class="form-group">
-                            <label for="exampleInputEmail1">
-                              Select Category
-                            </label>
-                            <select class="form-control m-bot15">
-                              <option>Fairy Tale</option>
+                            <label for="category">Select Category</label>
+                            <select
+                              value={this.state.category}
+                              class="form-control m-bot15"
+                              onChange={this.handleChange}
+                              required
+                            >
+                              {this.state.categories.map(category => {
+                                return (
+                                  <option key={category._id}>
+                                    {category.name}
+                                  </option>
+                                );
+                              })}
                             </select>
                           </div>
                           <div class="form-group">
                             <label for="exampleInputFile">Add Image</label>
-                            <input type="file" id="exampleInputFile" />
+                            <input
+                              type="file"
+                              id="image"
+                              name="image"
+                              onChange={this.handleImageChange}
+                            />
                             <p class="help-block">Format: PNG, JPG (1MB)</p>
                           </div>
                           <div class="form-group">
-                            <label for="exampleInputEmail1">Description</label>
+                            <label for="story">Story</label>
                             <textarea
                               class="form-control ckeditor"
-                              name="editor1"
+                              name="story"
                               rows="6"
+                              onChange={this.handleChange}
+                              value={this.state.story}
+                              required
                             />
                           </div>
                           <div class="form-group">
-                            <label for="exampleInputEmail1">Age Filter</label>
-                            <select class="form-control m-bot15">
-                              <option>0 - 3</option>
-                              <option>4 - 7</option>
-                              <option>10 - 11</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <button type="submit" class="btn btn-info">
+                            <button
+                              onClick={this.submitHandler}
+                              type="submit"
+                              class="btn btn-info"
+                            >
                               Submit
                             </button>
                           </div>

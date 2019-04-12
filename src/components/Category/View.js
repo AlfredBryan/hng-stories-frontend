@@ -1,12 +1,26 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class View extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      stories: []
+    };
   }
+
+  componentDidMount() {
+    axios
+      .get("https://dragon-legend-5.herokuapp.com/api/v1/story")
+      .then(res => {
+        console.log(res.data.data.stories);
+        this.setState({ stories: res.data.data.stories });
+      });
+  }
+
   render() {
+    let { stories } = this.state;
     return (
       <div>
         <section id="container">
@@ -107,22 +121,34 @@ class View extends Component {
                       </span>
                     </header>
                     <div class="panel-body">
-                      <table class="table">
+                      <table
+                        class="table table-striped table-hover table-bordered"
+                        id="editable-sample"
+                      >
                         <thead>
                           <tr>
-                            <th>#</th>
-                            <th width="80%">Title</th>
-                            <td />
+                            <th>Story Title</th>
+                            <th>Likes</th>
+                            <th>Delete</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>
-                              <a href="#">Edit </a> | <a href="#">Delete</a>
-                            </td>
-                          </tr>
+                          {stories.map(story => (
+                            <tr class="">
+                              <td>{story.title}</td>
+                              <td>new</td>
+
+                              <td>
+                                <button
+                                  onClick={() => {
+                                    this.deleteUser();
+                                  }}
+                                >
+                                  Delete
+                                </button>
+                              </td>
+                            </tr>
+                          ))}
                         </tbody>
                       </table>
                     </div>

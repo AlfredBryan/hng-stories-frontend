@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 
 const token = localStorage.getItem("token");
@@ -8,11 +9,19 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      me: ""
+      me: "",
+      stories: [],
+      selectedStoryId: null
     };
   }
 
   componentDidMount() {
+    axios
+      .get("https://dragon-legend-5.herokuapp.com/api/v1/story")
+      .then(res => {
+        console.log(res.data.data.stories);
+        this.setState({ stories: res.data.data.stories });
+      });
     this.getUser();
   }
 
@@ -38,20 +47,44 @@ class Dashboard extends Component {
     return JSON.parse(window.atob(base64));
   };
 
+  deleteStory = id => {
+    axios
+      .delete(
+        `https://dragon-legend-5.herokuapp.com/api/v1/story/delete/${id}`,
+        {
+          headers: { Authorization: token }
+        }
+      )
+      .then(res => {
+        if (res.status === 200) {
+          this.setState({
+            message: "Story Removed",
+            selectedStoryId: id
+          });
+          alert(`Story removed ${id}`);
+          window.location.reload();
+        }
+      });
+  };
+
   logOut = () => {
     localStorage.clear("token");
     this.props.history.replace("/login");
   };
   render() {
-    let { me } = this.state;
+    let { me, stories } = this.state;
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Stories</title>
+        </Helmet>
         <section id="container">
           {/* header start*/}
           <header className="header fixed-top clearfix">
             {/*logo start */}
             <div className="brand">
-              <a href="index.html" className="logo">
+              <a href="#" className="logo">
                 <img src={require("../../images/logo.png")} alt="" />
               </a>
               <div className="sidebar-toggle-box">
@@ -87,16 +120,16 @@ class Dashboard extends Component {
               {/* sidebar menu start*/}
               <ul className="sidebar-menu" id="nav-accordion">
                 <li>
-                  <a href="index.html">
+                  <a href="#">
                     <i className="fa fa-dashboard" />
                     <span>Dashboard</span>
                   </a>
                 </li>
                 <li className="sub-menu">
-                  <a href="javascript:;">
+                  <Link to="/category">
                     <i className="fa fa-laptop" />
                     <span>Categories</span>
-                  </a>
+                  </Link>
                   <ul className="sub">
                     <li>
                       <a href="#">Create</a>
@@ -157,7 +190,7 @@ class Dashboard extends Component {
                 <div class="col-sm-12">
                   <section class="panel">
                     <header class="panel-heading">
-                      All Stories
+                      <h5 className="new">All Stories</h5>
                       <span class="tools pull-right">
                         <a href="javascript:;" class="fa fa-chevron-down" />
                       </span>
@@ -183,31 +216,27 @@ class Dashboard extends Component {
                         >
                           <thead>
                             <tr>
-                              <th>Book titles</th>
-                              <th>Genre</th>
-                              <th>Age Limit</th>
-                              <th>Edit</th>
+                              <th>Story titles</th>
+                              <th>Likes</th>
                               <th>Delete</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr class="">
-                              <td>
-                                <a href="#">Alice in wonderland</a>{" "}
-                              </td>
-                              <td>Thriller </td>
-                              <td>0 - 3 </td>
-                              <td>
-                                <a class="edit" href="javascript:;">
-                                  Edit
-                                </a>
-                              </td>
-                              <td>
-                                <a class="delete" href="javascript:;">
-                                  Delete
-                                </a>
-                              </td>
-                            </tr>
+                            {stories.map(story => (
+                              <tr key={story._id}>
+                                <td>{story.title}</td>
+                                <td>{story.likes.length}</td>
+                                <td>
+                                  <button
+                                    onClick={() => {
+                                      this.deleteStory(story._id);
+                                    }}
+                                  >
+                                    Delete
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
                       </div>

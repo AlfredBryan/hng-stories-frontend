@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 
 const token = localStorage.getItem("token");
@@ -21,7 +22,6 @@ class User extends Component {
         headers: { Authorization: token }
       })
       .then(res => {
-        console.log(res.data.data);
         this.setState({ users: res.data.data });
       });
     this.getUser();
@@ -30,13 +30,11 @@ class User extends Component {
   getUser = () => {
     let user = this.parseJwt(token);
     let userId = user._id;
-    console.log(userId);
     axios
       .get(
         `https://dragon-legend-5.herokuapp.com/api/v1/user/profile/${userId}`
       )
       .then(res => {
-        console.log(res.data.data);
         this.setState({ me: res.data.data });
       });
   };
@@ -59,11 +57,14 @@ class User extends Component {
         }
       )
       .then(res => {
+        console.log(res);
         if (res.status === 200) {
           this.setState({
             message: "User Removed",
             selectedUserId: id
           });
+          alert(`User removed ${id}`);
+          window.location.reload();
         }
       });
   };
@@ -77,6 +78,10 @@ class User extends Component {
     let { users, me } = this.state;
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Users</title>
+        </Helmet>
         <section id="container">
           <header class="header fixed-top clearfix">
             <div class="brand">
@@ -125,10 +130,10 @@ class User extends Component {
                   </ul>
                 </li>
                 <li class="sub-menu">
-                  <a href="javascript:;">
+                  <Link to="/dashboard">
                     <i class="fa fa-book" />
                     <span>Stories</span>
-                  </a>
+                  </Link>
                   <ul class="sub">
                     <li>
                       <a href="#">Create</a>
@@ -173,7 +178,7 @@ class User extends Component {
                 <div class="col-sm-12">
                   <section class="panel">
                     <header class="panel-heading">
-                      All Users
+                      <h5 className="new">All Users</h5>
                       <span class="tools pull-right">
                         <a href="javascript:;" class="fa fa-chevron-down" />
                       </span>

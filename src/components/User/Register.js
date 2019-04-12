@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 
 class Register extends Component {
@@ -37,7 +38,6 @@ class Register extends Component {
         is_premium
       })
       .then(res => {
-        console.log(res);
         if (res.status === 200) {
           localStorage.setItem("token", res.data.data.token);
           this.props.history.replace("/profile");
@@ -62,6 +62,10 @@ class Register extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Register</title>
+        </Helmet>
         <div>
           <div class="container">
             <form class="form-signin" onSubmit={this.handleSubmit}>

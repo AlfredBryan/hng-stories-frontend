@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 class Home extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>HNG Admin Panel</title>
+        </Helmet>
         <nav class="navbar navbar-transparent navbar-black-links navbar-expand-lg">
           <div class="container">
             <div class="row mt-30px">

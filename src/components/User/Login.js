@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 
 class Login extends Component {
@@ -7,7 +8,8 @@ class Login extends Component {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      errorMessage: ""
     };
   }
   //Admin login function
@@ -20,7 +22,6 @@ class Login extends Component {
         password
       })
       .then(res => {
-        console.log(res);
         if (res.status === 200) {
           localStorage.setItem("token", res.data.data.token);
           this.props.history.replace("/profile");
@@ -29,7 +30,7 @@ class Login extends Component {
       .catch(error => {
         if (error) {
           this.setState({
-            errorMessage: "Error: confirm details and try again"
+            errorMessage: "Error: Confirm details and try again"
           });
         }
       });
@@ -44,6 +45,10 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Login</title>
+        </Helmet>
         <div class="container">
           <form class="form-signin" onSubmit={this.handleSubmit}>
             <h2 class="form-signin-heading">sign in now</h2>
@@ -65,6 +70,17 @@ class Login extends Component {
                   value={this.state.password}
                   onChange={this.handleChange}
                 />
+                <p
+                  style={{
+                    marginRight: "5px",
+                    fontWeight: "700",
+                    marginTop: "10px",
+                    color: "red",
+                    fontFamily: "'Italianno', cursive"
+                  }}
+                >
+                  {this.state.errorMessage}
+                </p>
               </div>
               <button
                 onClick={this.handleSubmit}

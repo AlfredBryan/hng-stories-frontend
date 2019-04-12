@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 
 const token = localStorage.getItem("token");
@@ -9,7 +10,8 @@ class Category extends Component {
     super(props);
     this.state = {
       me: "",
-      category: []
+      category: [],
+      selectedCatId: ""
     };
   }
 
@@ -35,6 +37,27 @@ class Category extends Component {
       });
   };
 
+  deleteCategory = id => {
+    axios
+      .delete(
+        `https://dragon-legend-5.herokuapp.com/api/v1/category/delete/${id}`,
+        {
+          headers: { Authorization: token }
+        }
+      )
+      .then(res => {
+        console.log(res);
+        if (res.status === 200) {
+          this.setState({
+            message: "User Removed",
+            selectedCatId: id
+          });
+          alert(`Category removed ${id}`);
+          window.location.reload();
+        }
+      });
+  };
+
   parseJwt = token => {
     if (!token) {
       return;
@@ -53,6 +76,10 @@ class Category extends Component {
     let { me, category } = this.state;
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Category</title>
+        </Helmet>
         <section id="container">
           {/* header start*/}
           <header className="header fixed-top clearfix">
@@ -77,10 +104,7 @@ class Category extends Component {
                     className="dropdown-toggle"
                     href="/"
                   >
-                    <img
-                      alt=""
-                      src={me.image}
-                    />
+                    <img alt="" src={me.image} />
                     <span className="username">{me.name}</span>
                     <b className="caret" />
                   </a>
@@ -117,10 +141,10 @@ class Category extends Component {
                   </ul>
                 </li>
                 <li className="sub-menu">
-                  <a href="javascript:;">
+                  <Link to="/dashboard">
                     <i class="fa fa-book" />
                     <span>Stories</span>
-                  </a>
+                  </Link>
                   <ul class="sub">
                     <li>
                       <a href="/add_story">Create</a>
@@ -143,7 +167,7 @@ class Category extends Component {
                   </Link>
                 </li>
                 <li>
-                <button
+                  <button
                     style={{
                       marginLeft: "15px",
                       backgroundColor: "black",
@@ -167,7 +191,7 @@ class Category extends Component {
                 <div class="col-sm-12">
                   <section class="panel">
                     <header class="panel-heading">
-                      All Stories
+                      <h5 className="new">All Stories</h5>
                       <span class="tools pull-right">
                         <a href="javascript:;" class="fa fa-chevron-down" />
                       </span>
@@ -202,9 +226,13 @@ class Category extends Component {
                               <tr class="" key={cat._id}>
                                 <td>{cat.name}</td>
                                 <td>
-                                  <a class="delete" href="javascript:;">
+                                  <button
+                                    onClick={() => {
+                                      this.deleteUser(cat._id);
+                                    }}
+                                  >
                                     Delete
-                                  </a>
+                                  </button>
                                 </td>
                               </tr>
                             ))}

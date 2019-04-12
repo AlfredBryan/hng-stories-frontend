@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 
 const token = localStorage.getItem("token");
@@ -79,6 +80,10 @@ class Category2 extends React.Component {
 
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Category</title>
+        </Helmet>
         <section id="container">
           {/*header start*/}
           <header class="header fixed-top clearfix">
@@ -122,10 +127,10 @@ class Category2 extends React.Component {
                   </Link>
                 </li>
                 <li class="sub-menu">
-                  <a href="javascript:;">
+                  <Link to="/category">
                     <i class="fa fa-laptop" />
                     <span>Categories</span>
-                  </a>
+                  </Link>
                   <ul class="sub">
                     <li>
                       <a href="#">Create</a>
@@ -136,10 +141,10 @@ class Category2 extends React.Component {
                   </ul>
                 </li>
                 <li class="sub-menu">
-                  <a href="javascript:;">
+                  <Link to="/dashboard">
                     <i class="fa fa-book" />
                     <span>Stories</span>
-                  </a>
+                  </Link>
                   <ul class="sub">
                     <li>
                       <a href="#">Create</a>
@@ -198,7 +203,7 @@ class Category2 extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                           <div className="form-group">
                             <label for="createCategoryText">
-                              Add a new Category
+                              <h5 className="new">Add a new Category</h5>
                             </label>
                             <input
                               onChange={this.handleChange}

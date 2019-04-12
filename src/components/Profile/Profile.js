@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 
 const token = localStorage.getItem("token");
@@ -45,6 +46,10 @@ class Profile extends Component {
     console.log();
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>DASHBOARD</title>
+        </Helmet>
         <section id="container">
           {/*header start*/}
           <header class="header fixed-top clearfix">
@@ -185,7 +190,7 @@ class Profile extends Component {
               <div class="row">
                 <div class="col-lg-12">
                   <section class="panel">
-                    <header class="panel-heading">Edit Profile</header>
+                    <header class="panel-heading new">Edit Profile</header>
                     <div class="panel-body">
                       <div class="position-center">
                         <form>
