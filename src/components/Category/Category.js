@@ -99,9 +99,9 @@ class Category extends Component {
               <ul className="nav pull-right top-menu">
                 {/*user login dropdown start */}
                 <li className="dropdown">
-                    <img alt="" src={me.image} />
-                    <span className="username">{me.name}</span>
-                    <b className="caret" />
+                  <img alt="" src={me.image} />
+                  <span className="username">{me.name}</span>
+                  <b className="caret" />
                 </li>
                 {/*user login dropdown end */}
               </ul>
@@ -222,7 +222,7 @@ class Category extends Component {
                                 <td>
                                   <button
                                     onClick={() => {
-                                      this.deleteUser(cat._id);
+                                      this.deleteCategory(cat._id);
                                     }}
                                   >
                                     Delete
