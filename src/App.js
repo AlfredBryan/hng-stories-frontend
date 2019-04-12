@@ -10,13 +10,15 @@ import Register from "./components/User/Register";
 import Category2 from "./components/Category/Category2";
 import Authenticate from "./components/hoc/ProtectedRoute";
 import Category from "./components/Category/Category";
+import Home from "./components/Home/Home";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Switch>
-          <Route exact path="/" component={Login} />
+         <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Authenticate>
             <Route exact path="/profile" component={Profile} />
@@ -26,7 +28,7 @@ class App extends Component {
             <Route exact path="/add_category" component={Category2} />
             <Route exact path="/category" component={Category} />
           </Authenticate>
-        </Switch>
+        </Switch> 
       </div>
     );
   }

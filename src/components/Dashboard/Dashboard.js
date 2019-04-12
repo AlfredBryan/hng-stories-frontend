@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const token = localStorage.getItem("me");
+const token = localStorage.getItem("token");
 
 class Dashboard extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class Dashboard extends Component {
   getUser = () => {
     let user = this.parseJwt(token);
     let userId = user._id;
-    console.log(user)
+    console.log(user);
     axios
       .get(
         `https://dragon-legend-5.herokuapp.com/api/v1/user/profile/${userId}`
@@ -36,6 +36,11 @@ class Dashboard extends Component {
     const base64Url = token.split(".")[1];
     const base64 = base64Url.replace("-", "+").replace("_", "/");
     return JSON.parse(window.atob(base64));
+  };
+
+  logOut = () => {
+    localStorage.clear("token");
+    this.props.history.replace("/login");
   };
   render() {
     let { me } = this.state;
@@ -65,10 +70,7 @@ class Dashboard extends Component {
                     className="dropdown-toggle"
                     href="/"
                   >
-                    <img
-                      alt=""
-                      src={require("../../images/avatar1_small.jpg")}
-                    />
+                    <img alt="" src={me.image} />
                     <span className="username">{me.name}</span>
                     <b className="caret" />
                   </a>
@@ -105,10 +107,10 @@ class Dashboard extends Component {
                   </ul>
                 </li>
                 <li className="sub-menu">
-                  <a href="javascript:;">
+                  <Link to="/dashboard">
                     <i class="fa fa-book" />
                     <span>Stories</span>
-                  </a>
+                  </Link>
                   <ul class="sub">
                     <li>
                       <a href="/add_story">Create</a>
@@ -131,10 +133,17 @@ class Dashboard extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">
+                  <button
+                    style={{
+                      marginLeft: "15px",
+                      backgroundColor: "black",
+                      color: "white"
+                    }}
+                    onClick={this.logOut}
+                  >
                     <i class="fa fa-user" />
                     <span>Log Out</span>
-                  </Link>
+                  </button>
                 </li>
               </ul>
               {/*sidebar menu end */}

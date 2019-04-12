@@ -6,6 +6,12 @@ class CreateStory extends Component {
     super(props);
     this.state = {};
   }
+
+  logOut = () => {
+    localStorage.clear("token");
+    this.props.history.replace("/login");
+  };
+
   render() {
     return (
       <div>
@@ -68,10 +74,10 @@ class CreateStory extends Component {
                   </ul>
                 </li>
                 <li class="sub-menu">
-                  <a href="javascript:;">
+                  <Link to="dashboard/">
                     <i class="fa fa-book" />
                     <span>Stories</span>
-                  </a>
+                  </Link>
                   <ul class="sub">
                     <li>
                       <a href="#">Create</a>
@@ -94,10 +100,17 @@ class CreateStory extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">
+                  <button
+                    style={{
+                      marginLeft: "15px",
+                      backgroundColor: "black",
+                      color: "white"
+                    }}
+                    onClick={this.logOut}
+                  >
                     <i class="fa fa-user" />
                     <span>Log Out</span>
-                  </Link>
+                  </button>
                 </li>
               </ul>
               {/* sidebar menu end*/}

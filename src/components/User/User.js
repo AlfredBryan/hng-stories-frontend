@@ -9,7 +9,8 @@ class User extends Component {
     super(props);
     this.state = {
       users: [],
-      me: ""
+      me: "",
+      selectedUserId: null
     };
   }
 
@@ -49,6 +50,29 @@ class User extends Component {
     return JSON.parse(window.atob(base64));
   };
 
+  deleteUser = id => {
+    axios
+      .delete(
+        `https://dragon-legend-5.herokuapp.com/api/v1/user/delete/${id}`,
+        {
+          headers: { Authorization: token }
+        }
+      )
+      .then(res => {
+        if (res.status === 200) {
+          this.setState({
+            message: "User Removed",
+            selectedUserId: id
+          });
+        }
+      });
+  };
+
+  logOut = () => {
+    localStorage.clear("token");
+    this.props.history.replace("/login");
+  };
+
   render() {
     let { users, me } = this.state;
     return (
@@ -68,10 +92,7 @@ class User extends Component {
               <ul class="nav pull-right top-menu">
                 <li class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <img
-                      alt=""
-                      src={require("../../images/avatar1_small.jpg")}
-                    />
+                    <img alt="" src={me.image} />
                     <span class="username">{me.name}</span>
                     <b class="caret" />
                   </a>
@@ -130,10 +151,17 @@ class User extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">
+                  <button
+                    style={{
+                      marginLeft: "15px",
+                      backgroundColor: "black",
+                      color: "white"
+                    }}
+                    onClick={this.logOut}
+                  >
                     <i class="fa fa-user" />
                     <span>Log Out</span>
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -169,16 +197,18 @@ class User extends Component {
                           <tbody>
                             {users.map(user => (
                               <tr class="" key={user._id}>
-                                <td>
-                                  <a href="#">{user.name}</a>{" "}
-                                </td>
+                                <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>2347031239123 </td>
+                                <td>{user.phone} </td>
 
                                 <td>
-                                  <a class="delete" href="javascript:;">
+                                  <button
+                                    onClick={() => {
+                                      this.deleteUser(user._id);
+                                    }}
+                                  >
                                     Delete
-                                  </a>
+                                  </button>
                                 </td>
                               </tr>
                             ))}

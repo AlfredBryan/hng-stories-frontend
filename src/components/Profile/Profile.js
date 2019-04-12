@@ -35,6 +35,11 @@ class Profile extends Component {
     const base64 = base64Url.replace("-", "+").replace("_", "/");
     return JSON.parse(window.atob(base64));
   };
+
+  logOut = () => {
+    localStorage.clear("token");
+    this.props.history.replace("/login");
+  };
   render() {
     let { user } = this.state;
     console.log();
@@ -60,10 +65,7 @@ class Profile extends Component {
                 {/*user login dropdown start*/}
                 <li class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="/">
-                    <img
-                      alt=""
-                      src={require("../../images/avatar1_small.jpg")}
-                    />
+                    <img alt="" src={user.image} />
                     <span class="username">{user.name}</span>
                     <b class="caret" />
                   </a>
@@ -86,10 +88,10 @@ class Profile extends Component {
                   </Link>
                 </li>
                 <li class="sub-menu">
-                  <a href="javascript:;">
+                  <Link to="/category">
                     <i class="fa fa-laptop" />
                     <span>Categories</span>
-                  </a>
+                  </Link>
                   <ul class="sub">
                     <li>
                       <a href="#">Create</a>
@@ -100,10 +102,10 @@ class Profile extends Component {
                   </ul>
                 </li>
                 <li class="sub-menu">
-                  <a href="javascript:;">
+                  <Link to="/dashboard">
                     <i class="fa fa-book" />
                     <span>Stories</span>
-                  </a>
+                  </Link>
                   <ul class="sub">
                     <li>
                       <a href="#">Create</a>
@@ -127,10 +129,17 @@ class Profile extends Component {
                 </li>
 
                 <li>
-                  <Link href="/">
+                  <button
+                    style={{
+                      marginLeft: "15px",
+                      backgroundColor: "black",
+                      color: "white"
+                    }}
+                    onClick={this.logOut}
+                  >
                     <i class="fa fa-user" />
                     <span>Log Out</span>
-                  </Link>
+                  </button>
                 </li>
               </ul>
               {/*sidebar menu end*/}
@@ -146,10 +155,7 @@ class Profile extends Component {
                     <div class="panel-body profile-information">
                       <div class="col-md-3">
                         <div class="profile-pic text-center">
-                          <img
-                            src={require("../../images/lock_thumb.jpg")}
-                            alt=""
-                          />
+                          <img src={user.image} alt="" />
                         </div>
                       </div>
                       <div class="col-md-6">

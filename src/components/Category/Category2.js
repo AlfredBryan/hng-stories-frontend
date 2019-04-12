@@ -2,13 +2,41 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const token = localStorage.getItem("token");
+
 class Category2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ""
+      name: "",
+      me: ""
     };
   }
+
+  componentDidMount() {
+    this.getUser();
+  }
+
+  getUser = () => {
+    let user = this.parseJwt(token);
+    let userId = user._id;
+    axios
+      .get(
+        `https://dragon-legend-5.herokuapp.com/api/v1/user/profile/${userId}`
+      )
+      .then(res => {
+        this.setState({ me: res.data.data });
+      });
+  };
+
+  parseJwt = token => {
+    if (!token) {
+      return;
+    }
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace("-", "+").replace("_", "/");
+    return JSON.parse(window.atob(base64));
+  };
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -41,7 +69,14 @@ class Category2 extends React.Component {
       });
   };
 
+  logOut = () => {
+    localStorage.clear("token");
+    this.props.history.replace("/login");
+  };
+
   render() {
+    let { me } = this.state;
+
     return (
       <div>
         <section id="container">
@@ -64,11 +99,8 @@ class Category2 extends React.Component {
                 {/*user login dropdown start*/}
                 <li class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="/">
-                    <img
-                      alt=""
-                      src={require("../../images/avatar1_small.jpg")}
-                    />
-                    <span class="username">John Doe</span>
+                    <img alt="" src={me.image} />
+                    <span class="username">{me.name}</span>
                     <b class="caret" />
                   </a>
                 </li>
@@ -130,10 +162,17 @@ class Category2 extends React.Component {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <button
+                    style={{
+                      marginLeft: "15px",
+                      backgroundColor: "black",
+                      color: "white"
+                    }}
+                    onClick={this.logOut}
+                  >
                     <i class="fa fa-user" />
                     <span>Log Out</span>
-                  </Link>
+                  </button>
                 </li>
               </ul>
               {/*sidebar menu end*/}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import Spinner from "./Spinner";
 
 class Authenticate extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Authenticate extends Component {
   componentDidMount() {
     const jwt = localStorage.getItem("token");
     if (!jwt) {
-      this.props.history.push("/");
+      this.props.history.push("/login");
     }
     axios
       .get("https://dragon-legend-5.herokuapp.com/api/v1/user/token", {
@@ -25,7 +26,7 @@ class Authenticate extends Component {
         });
       })
       .catch(error => {
-        this.props.history.push("/");
+        this.props.history.push("/login");
       });
   }
 
@@ -33,7 +34,7 @@ class Authenticate extends Component {
     if (this.state.user === undefined) {
       return (
         <div>
-          <h1>Loading.....</h1>
+          <Spinner />
         </div>
       );
     }

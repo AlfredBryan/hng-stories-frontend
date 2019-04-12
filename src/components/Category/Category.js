@@ -44,6 +44,11 @@ class Category extends Component {
     return JSON.parse(window.atob(base64));
   };
 
+  logOut = () => {
+    localStorage.clear("token");
+    this.props.history.replace("/login");
+  };
+
   render() {
     let { me, category } = this.state;
     return (
@@ -74,7 +79,7 @@ class Category extends Component {
                   >
                     <img
                       alt=""
-                      src={require("../../images/avatar1_small.jpg")}
+                      src={me.image}
                     />
                     <span className="username">{me.name}</span>
                     <b className="caret" />
@@ -138,10 +143,17 @@ class Category extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/">
+                <button
+                    style={{
+                      marginLeft: "15px",
+                      backgroundColor: "black",
+                      color: "white"
+                    }}
+                    onClick={this.logOut}
+                  >
                     <i class="fa fa-user" />
                     <span>Log Out</span>
-                  </Link>
+                  </button>
                 </li>
               </ul>
               {/*sidebar menu end */}
