@@ -1,11 +1,67 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+
+const token = localStorage.getItem("token");
 
 class CreateStory extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  
+  state = {
+    categories:[],
+    story: '',
+    image: null,
+    title: '',
+    category:''
+  };
+  
+  componentDidMount() {
+    axios
+    .get(`https://dragon-legend-5.herokuapp.com/api/v1/category/all`,
+      { headers: { Authorization: token } }
+    )
+    .then(res => {
+      this.setState({ categories: res.data.data });
+    });
   }
+  titleHandler = (e) => {
+    e.preventDefault()
+    this.setState({title:e.target.value})
+  }
+  storyHandler = (e) => {
+    e.preventDefault()
+    this.setState({story:e.target.value})
+  }
+  categoryHandler = (e) => {
+    e.preventDefault()
+    this.setState({category:e.target.value})
+  }
+  imageHandler = (e) => {
+    e.preventDefault()
+    this.setState({image:e.target.value})
+  }
+  submitHandler = (e) => {
+    e.preventDefault()
+    const data = new FormData()
+    data.append('title',this.state.title);
+    data.append('story',this.state.story);
+    data.append('category',this.state.category);
+    data.append('image',this.state.image);
+    fetch('/api/v1/story/create',
+      {
+        method: 'POST',
+        body: data,
+        withCredentials: true,
+        credentials: 'include',
+        headers: {
+          'Authorization': token,
+        }
+      }).then(res => res.json())
+    .then(res=>{
+      console.log(res)
+        alert(`Successfully posted your story`)
+    })
+}
+
   render() {
     return (
       <div>
@@ -116,22 +172,27 @@ class CreateStory extends Component {
                     <header class="panel-heading">Add Story</header>
                     <div class="panel-body">
                       <div class="position-center">
-                        <form>
+                        <form onSubmit={this.submitHandler}>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
                             <input
                               type="text"
                               class="form-control"
                               id="exampleInputEmail1"
-                              placeholder="Enter email"
+                              placeholder="Title"
+                              value={this.state.title}
+                              onChange={this.titleHandler}
+                              required
                             />
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">
                               Select Category
                             </label>
-                            <select class="form-control m-bot15">
-                              <option>Fairy Tale</option>
+                            <select class="form-control m-bot15" onChange={this.categoryHandler} required >
+                              {this.state.categories.map(category => {
+                                return (<option>{category}</option>)
+                              })}
                             </select>
                           </div>
                           <div class="form-group">
@@ -140,16 +201,19 @@ class CreateStory extends Component {
                             <p class="help-block">Format: PNG, JPG (1MB)</p>
                           </div>
                           <div class="form-group">
-                            <label for="exampleInputEmail1">Description</label>
+                            <label for="exampleInputEmail1">Story</label>
                             <textarea
                               class="form-control ckeditor"
                               name="editor1"
                               rows="6"
+                              onChange={this.storyHandler}
+                              value={this.state.story}
+                              required
                             />
                           </div>
                           <div class="form-group">
                             <label for="exampleInputEmail1">Age Filter</label>
-                            <select class="form-control m-bot15">
+                            <select class="form-control m-bot15" required>
                               <option>0 - 3</option>
                               <option>4 - 7</option>
                               <option>10 - 11</option>
