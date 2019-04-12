@@ -99,15 +99,9 @@ class Category extends Component {
               <ul className="nav pull-right top-menu">
                 {/*user login dropdown start */}
                 <li className="dropdown">
-                  <a
-                    data-toggle="dropdown"
-                    className="dropdown-toggle"
-                    href="/"
-                  >
                     <img alt="" src={me.image} />
                     <span className="username">{me.name}</span>
                     <b className="caret" />
-                  </a>
                 </li>
                 {/*user login dropdown end */}
               </ul>

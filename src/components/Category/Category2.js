@@ -103,11 +103,9 @@ class Category2 extends React.Component {
               <ul class="nav pull-right top-menu">
                 {/*user login dropdown start*/}
                 <li class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="/">
-                    <img alt="" src={me.image} />
-                    <span class="username">{me.name}</span>
-                    <b class="caret" />
-                  </a>
+                  <img alt="" src={me.image} />
+                  <span class="username">{me.name}</span>
+                  <b class="caret" />
                 </li>
                 {/*user login dropdown end*/}
               </ul>

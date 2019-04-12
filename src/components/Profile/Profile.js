@@ -69,11 +69,9 @@ class Profile extends Component {
               <ul class="nav pull-right top-menu">
                 {/*user login dropdown start*/}
                 <li class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="/">
                     <img alt="" src={user.image} />
                     <span class="username">{user.name}</span>
                     <b class="caret" />
-                  </a>
                 </li>
                 {/*user login dropdown end*/}
               </ul>
@@ -195,39 +193,26 @@ class Profile extends Component {
                       <div class="position-center">
                         <form>
                           <div class="form-group">
-                            <label for="exampleInputEmail1">First Name</label>
                             <input
                               type="text"
                               class="form-control"
                               id="exampleInputEmail1"
-                              placeholder="Enter email"
+                              placeholder="Enter Full Name"
                             />
                           </div>
                           <div class="form-group">
-                            <label for="exampleInputEmail1">Last Name</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="exampleInputEmail1"
-                              placeholder="Enter email"
-                            />
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
                             <input
                               type="Email"
                               class="form-control"
                               id="exampleInputEmail1"
-                              placeholder="Enter email"
+                              placeholder="Enter Email"
                             />
                           </div>
                           <div class="form-group">
-                            <label for="exampleInputEmail1">Phone Number</label>
                             <input
                               type="text"
                               class="form-control"
-                              id="exampleInputEmail1"
-                              placeholder="Enter email"
+                              placeholder="Enter Phone Number"
                             />
                           </div>
 

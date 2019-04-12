@@ -13,7 +13,7 @@ class Home extends Component {
         <nav class="navbar navbar-transparent navbar-black-links navbar-expand-lg">
           <div class="container">
             <div class="row mt-30px">
-              <Link class="navbar-brand w-25" to="/">
+              <Link class="navbar-brand w-25 pl-4 pb-2" to="/">
                 <img src={require("../../images/Kidslogo.png")} alt="logo" />
               </Link>
             </div>
@@ -49,13 +49,13 @@ class Home extends Component {
         </nav>
 
         <section
-          class="welcome-area sec-padding p-relative o-hidden"
+          class="welcome-area md-padding p-relative o-hidden"
           data-scroll-index="1"
         >
           <div class="container">
             <div class="row welcome-text sec-padding flex-center">
-              <div class="col-md-6 mb-50px z-index-1">
-                <h1 class="mb-20px">
+              <div class="col-md-6 mb-30px z-index-1">
+                <h1 class="mb-15px pr-5 mt-n5">
                   Get personalized Bedtime stories tailored just for your kids{" "}
                 </h1>
                 <p>

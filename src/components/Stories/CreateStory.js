@@ -108,11 +108,9 @@ class CreateStory extends Component {
               <ul class="nav pull-right top-menu">
                 {/*user login dropdown start */}
                 <li class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="/">
                     <img alt="" src={me.image} />
                     <span class="username">{me.name}</span>
                     <b class="caret" />
-                  </a>
                 </li>
                 {/*user login dropdown end */}
               </ul>
@@ -198,7 +196,6 @@ class CreateStory extends Component {
                           onSubmit={this.submitHandler}
                         >
                           <div class="form-group">
-                            <label for="title">Title</label>
                             <input
                               type="text"
                               class="form-control"

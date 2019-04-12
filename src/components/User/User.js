@@ -96,11 +96,9 @@ class User extends Component {
             <div class="top-nav clearfix">
               <ul class="nav pull-right top-menu">
                 <li class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <img alt="" src={me.image} />
                     <span class="username">{me.name}</span>
                     <b class="caret" />
-                  </a>
                 </li>
               </ul>
             </div>
