@@ -29,13 +29,11 @@ class CreateStory extends Component {
   getUser = () => {
     let user = this.parseJwt(token);
     let userId = user._id;
-    console.log(userId);
     axios
       .get(
         `https://dragon-legend-5.herokuapp.com/api/v1/user/profile/${userId}`
       )
       .then(res => {
-        console.log(res.data.data);
         this.setState({ me: res.data.data });
       });
   };
@@ -76,7 +74,6 @@ class CreateStory extends Component {
         Authorization: token
       }
     }).then(res => {
-      console.log(res);
       alert(`Successfully posted your story`);
     });
   };

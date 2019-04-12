@@ -19,7 +19,6 @@ class Dashboard extends Component {
     axios
       .get("https://dragon-legend-5.herokuapp.com/api/v1/story")
       .then(res => {
-        console.log(res.data.data.stories);
         this.setState({ stories: res.data.data.stories });
       });
     this.getUser();
@@ -28,7 +27,6 @@ class Dashboard extends Component {
   getUser = () => {
     let user = this.parseJwt(token);
     let userId = user._id;
-    console.log(user);
     axios
       .get(
         `https://dragon-legend-5.herokuapp.com/api/v1/user/profile/${userId}`

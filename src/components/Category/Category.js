@@ -19,7 +19,6 @@ class Category extends Component {
     axios
       .get("https://dragon-legend-5.herokuapp.com/api/v1/category/all")
       .then(res => {
-        console.log(res.data.data);
         this.setState({ category: res.data.data });
       });
     this.getUser();

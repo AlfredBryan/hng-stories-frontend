@@ -16,14 +16,12 @@ class Profile extends Component {
   componentDidMount() {
     let user = this.parseJwt(token);
     let userId = user._id;
-    console.log(userId);
     axios
       .get(
         `https://dragon-legend-5.herokuapp.com/api/v1/user/profile/${userId}`,
         { headers: { Authorization: token } }
       )
       .then(res => {
-        console.log(res.data.data);
         this.setState({ user: res.data.data });
       });
   }
@@ -43,7 +41,6 @@ class Profile extends Component {
   };
   render() {
     let { user } = this.state;
-    console.log();
     return (
       <div>
         <Helmet>

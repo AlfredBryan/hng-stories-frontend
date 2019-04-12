@@ -42,7 +42,6 @@ class Category2 extends React.Component {
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
-    console.log("Working");
   };
 
   handleSubmit = event => {
@@ -60,13 +59,10 @@ class Category2 extends React.Component {
         }
       )
       .then(res => {
-        console.log(res);
         if (res.status === 200) {
-          console.log("Working");
         }
       })
       .catch(err => {
-        console.log(err);
       });
   };
 
