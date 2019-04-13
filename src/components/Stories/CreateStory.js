@@ -101,33 +101,33 @@ class CreateStory extends Component {
         </Helmet>
         <section id="container">
           {/*header start */}
-          <header class="header fixed-top clearfix">
+          <header className="header fixed-top clearfix">
             {/* logo start*/}
-            <div class="brand">
-              <a href="index.html" class="logo">
+            <div className="brand">
+              <a href="index.html" className="logo">
                 <img src={require("../../images/logo.png")} alt="" />
               </a>
-              <div class="sidebar-toggle-box">
-                <div class="fa fa-bars" />
+              <div className="sidebar-toggle-box">
+                <div className="fa fa-bars" />
               </div>
             </div>
             {/*logo end */}
 
-            <div class="top-nav clearfix">
+            <div className="top-nav clearfix">
               {/*search & user info start */}
-              <ul class="nav pull-right top-menu">
+              <ul className="nav pull-right top-menu">
                 {/*user login dropdown start */}
-                <li class="dropdown">
+                <li className="dropdown">
                   <img alt="" src={me.image} />
                   <span
-                    class="username"
+                    className="username"
                     style={{
                       fontFamily: "'Abril Fatface', cursive"
                     }}
                   >
                     {me.name}
                   </span>
-                  <b class="caret" />
+                  <b className="caret" />
                 </li>
                 {/*user login dropdown end */}
               </ul>
@@ -136,21 +136,21 @@ class CreateStory extends Component {
           </header>
           {/*header end */}
           <aside>
-            <div id="sidebar" class="nav-collapse">
+            <div id="sidebar" className="nav-collapse">
               {/*sidebar menu start */}
-              <ul class="sidebar-menu" id="nav-accordion">
+              <ul className="sidebar-menu" id="nav-accordion">
                 <li>
                   <a href="index.html">
-                    <i class="fa fa-dashboard" />
+                    <i className="fa fa-dashboard" />
                     <span>Dashboard</span>
                   </a>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <Link to="/category">
-                    <i class="fa fa-laptop" />
+                    <i className="fa fa-laptop" />
                     <span>Categories</span>
                   </Link>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -159,12 +159,12 @@ class CreateStory extends Component {
                     </li>
                   </ul>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <Link to="/dashboard">
-                    <i class="fa fa-book" />
+                    <i className="fa fa-book" />
                     <span>Stories</span>
                   </Link>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -175,19 +175,19 @@ class CreateStory extends Component {
                 </li>
                 <li>
                   <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
+                    <i className="fa fa-bullhorn" />
                     <span>Profile </span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/user">
-                    <i class="fa fa-users" />
+                    <i className="fa fa-users" />
                     <span>Users </span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/">
-                    <i class="fa fa-user" />
+                    <i className="fa fa-user" />
                     <span>Log Out</span>
                   </Link>
                 </li>
@@ -197,25 +197,25 @@ class CreateStory extends Component {
           </aside>
           {/*sidebar end */}
           {/*main content start */}
-          <section id="main-content" class="">
-            <section class="wrapper">
+          <section id="main-content" className="">
+            <section className="wrapper">
               {/*page start */}
 
               {/*start of header */}
-              <div class="row">
-                <div class="col-lg-12">
-                  <section class="panel">
-                    <header class="panel-heading new">Add Story</header>
-                    <div class="panel-body">
-                      <div class="position-center">
+              <div className="row">
+                <div className="col-lg-12">
+                  <section className="panel">
+                    <header className="panel-heading new">Add Story</header>
+                    <div className="panel-body">
+                      <div className="position-center">
                         <form
                           encType="multipart/form-data"
                           onSubmit={this.submitHandler}
                         >
-                          <div class="form-group">
+                          <div className="form-group">
                             <input
                               type="text"
-                              class="form-control"
+                              className="form-control"
                               id="title"
                               name="title"
                               placeholder="Title"
@@ -224,11 +224,11 @@ class CreateStory extends Component {
                               required
                             />
                           </div>
-                          <div class="form-group">
-                            <label for="category">Select Category</label>
+                          <div className="form-group">
+                            <label htmlFor="category">Select Category</label>
                             <select
                               value={this.state.category}
-                              class="form-control m-bot15"
+                              className="form-control m-bot15"
                               onChange={this.handleChange}
                               name="category"
                               required
@@ -242,20 +242,20 @@ class CreateStory extends Component {
                               })}
                             </select>
                           </div>
-                          <div class="form-group">
-                            <label for="exampleInputFile">Add Image</label>
+                          <div className="form-group">
+                            <label htmlFor="exampleInputFile">Add Image</label>
                             <input
                               type="file"
                               id="image"
                               name="image"
                               onChange={this.handleImageChange}
                             />
-                            <p class="help-block">Format: PNG, JPG (1MB)</p>
+                            <p className="help-block">Format: PNG, JPG (1MB)</p>
                           </div>
-                          <div class="form-group">
-                            <label for="story">Story</label>
+                          <div className="form-group">
+                            <label htmlFor="story">Story</label>
                             <textarea
-                              class="form-control ckeditor"
+                              className="form-control ckeditor"
                               name="story"
                               rows="6"
                               onChange={this.handleChange}
@@ -263,7 +263,7 @@ class CreateStory extends Component {
                               required
                             />
                           </div>
-                          <div class="form-group">
+                          <div className="form-group">
                             <button
                               style={{
                                 fontFamily: "'Cute Font', cursive",
@@ -271,7 +271,7 @@ class CreateStory extends Component {
                               }}
                               onClick={this.submitHandler}
                               type="submit"
-                              class="btn btn-info"
+                              className="btn btn-info"
                             >
                               Submit
                             </button>

@@ -77,6 +77,7 @@ class Profile extends Component {
     localStorage.clear("token");
     this.props.history.replace("/login");
   };
+
   render() {
     let { user } = this.state;
     return (
@@ -87,33 +88,33 @@ class Profile extends Component {
         </Helmet>
         <section id="container">
           {/*header start*/}
-          <header class="header fixed-top clearfix">
+          <header className="header fixed-top clearfix">
             {/*logo start*/}
-            <div class="brand">
-              <a href="index.html" class="logo">
+            <div className="brand">
+              <a href="index.html" className="logo">
                 <img src={require("../../images/logo.png")} alt="" />
               </a>
-              <div class="sidebar-toggle-box">
-                <div class="fa fa-bars" />
+              <div className="sidebar-toggle-box">
+                <div className="fa fa-bars" />
               </div>
             </div>
             {/*logo end*/}
 
-            <div class="top-nav clearfix">
+            <div className="top-nav clearfix">
               {/*search & user info start*/}
-              <ul class="nav pull-right top-menu">
+              <ul className="nav pull-right top-menu">
                 {/*user login dropdown start*/}
-                <li class="dropdown">
+                <li className="dropdown">
                   <img alt="" src={user.image} />
                   <span
-                    class="username"
+                    className="username"
                     style={{
                       fontFamily: "'Abril Fatface', cursive"
                     }}
                   >
                     {user.name}
                   </span>
-                  <b class="caret" />
+                  <b className="caret" />
                 </li>
                 {/*user login dropdown end*/}
               </ul>
@@ -123,21 +124,21 @@ class Profile extends Component {
           {/*header end*/}
           {/*sidebar start*/}
           <aside>
-            <div id="sidebar" class="nav-collapse">
+            <div id="sidebar" className="nav-collapse">
               {/*sidebar menu start*/}
-              <ul class="sidebar-menu" id="nav-accordion">
+              <ul className="sidebar-menu" id="nav-accordion">
                 <li>
                   <Link to="/dashboard">
-                    <i class="fa fa-dashboard" />
+                    <i className="fa fa-dashboard" />
                     <span>Dashboard</span>
                   </Link>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <Link to="/category">
-                    <i class="fa fa-laptop" />
+                    <i className="fa fa-laptop" />
                     <span>Categories</span>
                   </Link>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -146,12 +147,12 @@ class Profile extends Component {
                     </li>
                   </ul>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <Link to="/dashboard">
-                    <i class="fa fa-book" />
+                    <i className="fa fa-book" />
                     <span>Stories</span>
                   </Link>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -162,13 +163,13 @@ class Profile extends Component {
                 </li>
                 <li>
                   <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
+                    <i className="fa fa-bullhorn" />
                     <span>Profile </span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/user">
-                    <i class="fa fa-users" />
+                    <i className="fa fa-users" />
                     <span>Users </span>
                   </Link>
                 </li>
@@ -182,7 +183,7 @@ class Profile extends Component {
                     }}
                     onClick={this.logOut}
                   >
-                    <i class="fa fa-user" />
+                    <i className="fa fa-user" />
                     <span>Log Out</span>
                   </button>
                 </li>
@@ -193,20 +194,22 @@ class Profile extends Component {
           {/*sidebar end*/}
           {/*main content start*/}
           <section id="main-content">
-            <section class="wrapper">
-              <div class="row">
-                <div class="col-md-12">
-                  <section class="panel">
-                    <div class="panel-body profile-information">
-                      <div class="col-md-3">
-                        <div class="profile-pic text-center">
+            <section className="wrapper">
+              <div className="row">
+                <div className="col-md-12">
+                  <section className="panel">
+                    <div className="panel-body profile-information">
+                      <div className="col-md-3">
+                        <div className="profile-pic text-center">
                           <img src={user.image} alt="" />
                         </div>
                       </div>
-                      <div class="col-md-6">
-                        <div class="profile-desk">
+                      <div className="col-md-6">
+                        <div className="profile-desk">
                           <h1>{user.name}</h1>
-                          <span class="text-muted">Email: {user.email} </span>
+                          <span className="text-muted">
+                            Email: {user.email}{" "}
+                          </span>
                           <br />
                           <Link
                             style={{
@@ -214,14 +217,14 @@ class Profile extends Component {
                               fontSize: "30px"
                             }}
                             to="/add_story"
-                            class="btn btn-primary"
+                            className="btn btn-primary"
                           >
                             Add Story
                           </Link>
                         </div>
                       </div>
-                      <div class="col-md-3">
-                        <div class="profile-statistics">
+                      <div className="col-md-3">
+                        <div className="profile-statistics">
                           <h1>{user.bookmark_count}</h1>
                           <p>BookMarks</p>
                         </div>
@@ -232,20 +235,20 @@ class Profile extends Component {
               </div>{" "}
               {/* End*/}
               {/*start of header*/}
-              <div class="row">
-                <div class="col-lg-12">
-                  <section class="panel">
-                    <header class="panel-heading new">Edit Profile</header>
-                    <div class="panel-body">
-                      <div class="position-center">
+              <div className="row">
+                <div className="col-lg-12">
+                  <section className="panel">
+                    <header className="panel-heading new">Edit Profile</header>
+                    <div className="panel-body">
+                      <div className="position-center">
                         <form
                           encType="multipart/form-data"
                           onSubmit={this.updateInfo}
                         >
-                          <div class="form-group">
+                          <div className="form-group">
                             <input
                               type="text"
-                              class="form-control"
+                              className="form-control"
                               id="name"
                               name="name"
                               placeholder="Enter Full Name"
@@ -253,7 +256,7 @@ class Profile extends Component {
                               onChange={this.handlTextChange}
                             />
                           </div>
-                          <div class="form-group">
+                          <div className="form-group">
                             <label htmlFor="image">Change Profile Photo</label>
                             <input
                               type="file"
@@ -261,13 +264,13 @@ class Profile extends Component {
                               name="image"
                               onChange={this.handleImageChange}
                             />
-                            <p class="help-block">Format: PNG, JPG (1MB)</p>
+                            <p className="help-block">Format: PNG, JPG (1MB)</p>
                           </div>
-                          <div class="form-group">
+                          <div className="form-group">
                             <button
                               onClick={this.updateInfo}
                               type="submit"
-                              class="btn btn-info"
+                              className="btn btn-info"
                             >
                               Submit
                             </button>

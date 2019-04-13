@@ -151,10 +151,10 @@ class Category extends Component {
                 </li>
                 <li className="sub-menu">
                   <Link to="/dashboard">
-                    <i class="fa fa-book" />
+                    <i className="fa fa-book" />
                     <span>Stories</span>
                   </Link>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="/add_story">Create</a>
                     </li>
@@ -165,13 +165,13 @@ class Category extends Component {
                 </li>
                 <li>
                   <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
+                    <i className="fa fa-bullhorn" />
                     <span>Profile </span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/user">
-                    <i class="fa fa-users" />
+                    <i className="fa fa-users" />
                     <span>Users </span>
                   </Link>
                 </li>
@@ -184,7 +184,7 @@ class Category extends Component {
                     }}
                     onClick={this.logOut}
                   >
-                    <i class="fa fa-user" />
+                    <i className="fa fa-user" />
                     <span>Log Out</span>
                   </button>
                 </li>
@@ -195,37 +195,37 @@ class Category extends Component {
           {/*sidebar end */}
           {/* main content start*/}
           <section id="main-content">
-            <section class="wrapper">
-              <div class="row">
-                <div class="col-sm-12">
-                  <section class="panel">
-                    <header class="panel-heading">
+            <section className="wrapper">
+              <div className="row">
+                <div className="col-sm-12">
+                  <section className="panel">
+                    <header className="panel-heading">
                       <h5 className="new">All Categories</h5>
-                      <span class="tools pull-right">
-                        <a href="javascript:;" class="fa fa-chevron-down" />
+                      <span className="tools pull-right">
+                        <a href="javascript:;" className="fa fa-chevron-down" />
                       </span>
                     </header>
-                    <div class="panel-body">
-                      <div class="adv-table editable-table ">
-                        <div class="clearfix">
-                          <div class="btn-group">
+                    <div className="panel-body">
+                      <div className="adv-table editable-table ">
+                        <div className="clearfix">
+                          <div className="btn-group">
                             <Link to="/add_category">
                               <button
                                 id="editable-sample_new"
-                                class="btn btn-primary"
+                                className="btn btn-primary"
                                 style={{
                                   fontFamily: "'Cute Font', cursive",
                                   fontSize: "30px"
                                 }}
                               >
-                                Add New Category <i class="fa fa-plus" />
+                                Add New Category <i className="fa fa-plus" />
                               </button>
                             </Link>
                           </div>
                         </div>
-                        <div class="space15" />
+                        <div className="space15" />
                         <table
-                          class="table table-striped table-hover table-bordered"
+                          className="table table-striped table-hover table-bordered"
                           id="editable-sample"
                         >
                           <thead>
@@ -236,7 +236,7 @@ class Category extends Component {
                           </thead>
                           <tbody>
                             {category.map(cat => (
-                              <tr class="" key={cat._id}>
+                              <tr className="" key={cat._id}>
                                 <td
                                   style={{
                                     fontFamily: "'Abril Fatface', cursive"

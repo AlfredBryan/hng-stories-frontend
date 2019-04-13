@@ -91,49 +91,48 @@ class User extends Component {
           <title>Users</title>
         </Helmet>
         <section id="container">
-          <header class="header fixed-top clearfix">
-            <div class="brand">
-              <a href="index.html" class="logo">
+          <header className="header fixed-top clearfix">
+            <div className="brand">
+              <a href="index.html" className="logo">
                 <img src={require("../../images/logo.png")} alt="" />
               </a>
-              <div class="sidebar-toggle-box">
-                <div class="fa fa-bars" />
+              <div className="sidebar-toggle-box">
+                <div className="fa fa-bars" />
               </div>
             </div>
-
-            <div class="top-nav clearfix">
-              <ul class="nav pull-right top-menu">
-                <li class="dropdown">
+            <div className="top-nav clearfix">
+              <ul className="nav pull-right top-menu">
+                <li className="dropdown">
                   <img alt="" src={me.image} />
                   <span
-                    class="username"
+                    className="username"
                     style={{
                       fontFamily: "'Abril Fatface', cursive"
                     }}
                   >
                     {me.name}
                   </span>
-                  <b class="caret" />
+                  <b className="caret" />
                 </li>
               </ul>
             </div>
           </header>
 
           <aside>
-            <div id="sidebar" class="nav-collapse">
-              <ul class="sidebar-menu" id="nav-accordion">
+            <div id="sidebar" className="nav-collapse">
+              <ul className="sidebar-menu" id="nav-accordion">
                 <li>
                   <Link to="/dashboard">
-                    <i class="fa fa-dashboard" />
+                    <i className="fa fa-dashboard" />
                     <span>Dashboard</span>
                   </Link>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <Link to="/category">
-                    <i class="fa fa-laptop" />
+                    <i className="fa fa-laptop" />
                     <span>Categories</span>
                   </Link>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <Link to="/add_category">Create</Link>
                     </li>
@@ -142,12 +141,12 @@ class User extends Component {
                     </li>
                   </ul>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <Link to="/dashboard">
-                    <i class="fa fa-book" />
+                    <i className="fa fa-book" />
                     <span>Stories</span>
                   </Link>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -158,13 +157,13 @@ class User extends Component {
                 </li>
                 <li>
                   <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
+                    <i className="fa fa-bullhorn" />
                     <span>Profile </span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/user">
-                    <i class="fa fa-users" />
+                    <i className="fa fa-users" />
                     <span>Users </span>
                   </Link>
                 </li>
@@ -177,7 +176,7 @@ class User extends Component {
                     }}
                     onClick={this.logOut}
                   >
-                    <i class="fa fa-user" />
+                    <i className="fa fa-user" />
                     <span>Log Out</span>
                   </button>
                 </li>
@@ -186,21 +185,21 @@ class User extends Component {
           </aside>
 
           <section id="main-content">
-            <section class="wrapper">
-              <div class="row">
-                <div class="col-sm-12">
-                  <section class="panel">
-                    <header class="panel-heading">
-                      <h5 className="new">All Users</h5>
-                      <span class="tools pull-right">
-                        <a href="javascript:;" class="fa fa-chevron-down" />
+            <section className="wrapper">
+              <div className="row">
+                <div className="col-sm-12">
+                  <section className="panel">
+                    <header className="panel-heading">
+                      <h5 classNameName="new">All Users</h5>
+                      <span className="tools pull-right">
+                        <a href="javascript:;" className="fa fa-chevron-down" />
                       </span>
                     </header>
-                    <div class="panel-body">
-                      <div class="adv-table editable-table ">
-                        <div class="space15" />
+                    <div className="panel-body">
+                      <div className="adv-table editable-table ">
+                        <div className="space15" />
                         <table
-                          class="table table-striped table-hover table-bordered"
+                          className="table table-striped table-hover table-bordered"
                           id="editable-sample"
                         >
                           <thead>
@@ -214,7 +213,7 @@ class User extends Component {
                           </thead>
                           <tbody>
                             {users.map(user => (
-                              <tr class="" key={user._id}>
+                              <tr className="" key={user._id}>
                                 <td
                                   style={{
                                     fontFamily: "'Abril Fatface', cursive"
