@@ -99,7 +99,14 @@ class Category extends Component {
                 {/*user login dropdown start */}
                 <li className="dropdown">
                   <img alt="" src={me.image} />
-                  <span className="username">{me.name}</span>
+                  <span
+                    className="username"
+                    style={{
+                      fontFamily: "'Abril Fatface', cursive"
+                    }}
+                  >
+                    {me.name}
+                  </span>
                   <b className="caret" />
                 </li>
                 {/*user login dropdown end */}
@@ -197,6 +204,10 @@ class Category extends Component {
                               <button
                                 id="editable-sample_new"
                                 className="btn btn-primary"
+                                style={{
+                                  fontFamily: "'Cute Font', cursive",
+                                  fontSize: "30px"
+                                }}
                               >
                                 Add New Category <i className="fa fa-plus" />
                               </button>
@@ -217,9 +228,20 @@ class Category extends Component {
                           <tbody>
                             {category.map(cat => (
                               <tr className="" key={cat._id}>
-                                <td>{cat.name}</td>
+                                <td
+                                  style={{
+                                    fontFamily: "'Abril Fatface', cursive"
+                                  }}
+                                >
+                                  {cat.name}
+                                </td>
                                 <td>
                                   <button
+                                    style={{
+                                      backgroundColor: "white",
+                                      color: "red",
+                                      fontFamily: "'Cute Font', cursive"
+                                    }}
                                     onClick={() => {
                                       this.deleteCategory(cat._id);
                                     }}

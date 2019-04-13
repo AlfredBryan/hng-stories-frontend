@@ -91,12 +91,18 @@ class User extends Component {
                 <div className="fa fa-bars" />
               </div>
             </div>
-
             <div className="top-nav clearfix">
               <ul className="nav pull-right top-menu">
                 <li className="dropdown">
                   <img alt="" src={me.image} />
-                  <span className="username">{me.name}</span>
+                  <span
+                    className="username"
+                    style={{
+                      fontFamily: "'Abril Fatface', cursive"
+                    }}
+                  >
+                    {me.name}
+                  </span>
                   <b className="caret" />
                 </li>
               </ul>
@@ -199,12 +205,30 @@ class User extends Component {
                           <tbody>
                             {users.map(user => (
                               <tr className="" key={user._id}>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
+                                <td
+                                  style={{
+                                    fontFamily: "'Abril Fatface', cursive"
+                                  }}
+                                >
+                                  {user.name}
+                                </td>
+                                <td
+                                  style={{
+                                    fontFamily: "'Italiana', serif",
+                                    fontWeight: "600"
+                                  }}
+                                >
+                                  {user.email}
+                                </td>
                                 <td>{user.phone} </td>
 
                                 <td>
                                   <button
+                                    style={{
+                                      backgroundColor: "white",
+                                      color: "red",
+                                      fontFamily: "'Cute Font', cursive"
+                                    }}
                                     onClick={() => {
                                       this.deleteUser(user._id);
                                     }}

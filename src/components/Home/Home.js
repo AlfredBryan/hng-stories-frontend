@@ -33,12 +33,24 @@ class Home extends Component {
             <div className="collapse navbar-collapse" id="main-navbar">
               <ul className="navbar-nav navbar-right ml-auto">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/" data-scroll-nav="1">
+                  <Link
+                    style={{
+                      fontFamily: "'Cute Font', cursive",
+                      fontSize: "30px"
+                    }}
+                    className="nav-link"
+                    to="/"
+                    data-scroll-nav="1"
+                  >
                     Home
                   </Link>
                 </li>
                 <li className="nav-item log-in">
                   <Link
+                    style={{
+                      fontFamily: "'Cute Font', cursive",
+                      fontSize: "30px"
+                    }}
                     className="nav-link flex-center bg-blue radius-5px transition-3"
                     to="/login"
                   >

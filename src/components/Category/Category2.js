@@ -99,8 +99,15 @@ class Category2 extends React.Component {
                 {/*user login dropdown start*/}
                 <li className="dropdown">
                   <img alt="" src={me.image} />
-                  <span className="username">{me.name}</span>
-                  <b className="caret" />
+                  <span
+                    className="username"
+                    style={{
+                      fontFamily: "'Abril Fatface', cursive"
+                    }}
+                  >
+                    {me.name}
+                  </span>
+                  <b class="caret" />
                 </li>
                 {/*user login dropdown end*/}
               </ul>
@@ -210,6 +217,10 @@ class Category2 extends React.Component {
                           </div>
                           <div className="form-group">
                             <button
+                              style={{
+                                fontFamily: "'Cute Font', cursive",
+                                fontSize: "20px"
+                              }}
                               onClick={this.handleSubmit}
                               type="submit"
                               className="btn btn-primary"
