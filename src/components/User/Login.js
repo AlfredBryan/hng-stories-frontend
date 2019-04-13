@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import swal from "sweetalert";
 import axios from "axios";
 
 class Login extends Component {
@@ -26,9 +27,7 @@ class Login extends Component {
           localStorage.setItem("token", res.data.data.token);
           this.props.history.replace("/profile");
         } else {
-          this.setState({
-            errorMessage: "Error:  Need to be admin to login Here"
-          });
+          swal("You need to be admin to login Here");
         }
       })
       .catch(error => {
