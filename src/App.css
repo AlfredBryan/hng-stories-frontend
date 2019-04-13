@@ -6,7 +6,9 @@ html {
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
 }
-
+.btn{
+  font-weight: bold;
+}
 .new {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
@@ -37,12 +39,12 @@ a:focus {
 }
 
 ::selection {
-  background: #1FB5AD;
+  background: rgba(36, 63, 98, 0.56);
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #1FB5AD;
+  background: rgba(36, 63, 98, 0.56);
   color: #fff;
 }
 
@@ -75,15 +77,15 @@ a:focus {
   margin: 0;
   padding: 35px 15px;
   text-align: center;
-  background: #aec785;
+  background: rgba(36, 63, 98, 0.76);
   border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
   color: #fff;
   font-size: 18px;
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: 600;
   font-family: 'Open Sans', sans-serif;
-  border-bottom: 10px solid #a0b87e;
+  border-bottom: 10px solid rgba(36, 63, 98, 0.56);
 }
 
 .form-signin .checkbox {
@@ -277,7 +279,7 @@ ul.sidebar-menu li ul.sub li a {
 
 ul.sidebar-menu li ul.sub li a:hover,
 ul.sidebar-menu li ul.sub li.active a {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -321,7 +323,7 @@ ul.sidebar-menu li a.active,
 ul.sidebar-menu li a:hover,
 ul.sidebar-menu li a:focus {
   background: #28282e;
-  color: #1FB5AD;
+  color: rgba(36, 63, 98, 0.56);
   display: block;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -337,11 +339,11 @@ ul.sidebar-menu li a i {
 
 ul.sidebar-menu li a:hover i,
 ul.sidebar-menu li a:focus i {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 ul.sidebar-menu li a.active i {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 .mail-info,
@@ -393,7 +395,7 @@ ul.sidebar-menu li a.active i {
 }
 
 .brand {
-  background: #1fb5ad;
+  background: rgba(36, 63, 98, 0.56);
   float: left;
   width: 240px;
   height: 80px;
@@ -1609,7 +1611,7 @@ h3.timeline-title {
 }
 
 .timeline-desk a {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 .timeline-desk .panel {
@@ -2221,16 +2223,16 @@ ul.ft-link li a i {
 .mail-nav>li>a:hover,
 .mail-nav>li>a:focus {
   background: #fafafa;
-  color: #1fb5ad;
-  border-right: 3px solid #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
+  border-right: 3px solid rgba(36, 63, 98, 0.56);
 }
 
 .mail-nav>li.active>a,
 .mail-nav>li.active>a:hover,
 .mail-nav>li.active>a:focus {
   background: #fafafa;
-  color: #1fb5ad;
-  border-right: 3px solid #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
+  border-right: 3px solid rgba(36, 63, 98, 0.56);
 }
 
 .mail-nav>li+li {
@@ -2292,7 +2294,7 @@ a.mail-dropdown {
 }
 
 .btn-compose {
-  background: #1fb5ad;
+  background: rgba(36, 63, 98, 0.56);
   padding: 12px 0;
   text-align: center;
   width: 100%;
@@ -2691,7 +2693,7 @@ ul.inbox-pagination li {
 }
 
 .profile-information .profile-desk h1 {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 0;
@@ -2736,7 +2738,7 @@ ul.inbox-pagination li {
 }
 
 .profile-information .profile-statistics ul li a:hover {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 /*-----*/
@@ -2840,7 +2842,7 @@ ul.inbox-pagination li {
 
 .recent-act h1 {
   text-align: center;
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
@@ -2892,7 +2894,7 @@ ul.inbox-pagination li {
 }
 
 .activity-desk h2 {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
   font-size: 14px;
   font-weight: bold;
   margin: 0 0 10px 0;
@@ -2900,7 +2902,7 @@ ul.inbox-pagination li {
 }
 
 .activity-desk .terques {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 .activity-desk .red {
@@ -2945,7 +2947,7 @@ ul.inbox-pagination li {
 }
 
 .prf-border-head {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
   border-bottom: 1px solid #f1f2f7;
   font-size: 16px;
   font-weight: bold;
@@ -2985,7 +2987,7 @@ ul.inbox-pagination li {
 
 /*profile contact*/
 .prf-contacts h2 {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
   font-size: 16px;
   margin-top: 0;
   text-transform: uppercase;
@@ -2995,7 +2997,7 @@ ul.inbox-pagination li {
   width: 40px;
   height: 40px;
   line-height: 42px;
-  background: #1fb5ad;
+  background: rgba(36, 63, 98, 0.56);
   color: #fff;
   border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -3043,13 +3045,13 @@ ul.inbox-pagination li {
 }
 
 .invoice-title {
-  background: #1fb5ad;
+  background: rgba(36, 63, 98, 0.56);
   color: #fff;
   display: inline-block;
 }
 
 .inv-label {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 .itatic {
@@ -3061,7 +3063,7 @@ ul.inbox-pagination li {
 }
 
 ul.amounts li.grand-total {
-  background: #1fb5ad;
+  background: rgba(36, 63, 98, 0.56);
   color: #fff;
   font-weight: bold;
 }
@@ -3304,8 +3306,8 @@ ul.amounts li {
 }
 
 .fc-event-skin {
-  background-color: #1FB5AD !important;
-  border-color: #1FB5AD !important;
+  background-color: rgba(36, 63, 98, 0.56) !important;
+  border-color: rgba(36, 63, 98, 0.56) !important;
   color: #FFFFFF !important;
 }
 
@@ -3437,7 +3439,7 @@ ul.amounts li {
 
 .panel-heading .nav>li.active>a,
 .panel-heading .nav>li>a:hover {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
   background: #fff;
 }
 
@@ -3758,11 +3760,11 @@ select:focus:invalid:focus,
 }
 
 .terques-bg {
-  background: #1fb5ad;
+  background: rgba(36, 63, 98, 0.56);
 }
 
 .profile-nav.alt.green-border ul>li>a:hover i {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 .user-heading.alt a {
@@ -3967,13 +3969,13 @@ ul.clock-category li a i {
 
 ul.clock-category li a:hover,
 ul.clock-category li a.active {
-  color: #1fb5ad !important;
+  color: rgba(36, 63, 98, 0.56) !important;
   background: none !important;
 }
 
 ul.clock-category li a:hover i,
 ul.clock-category li a.active i {
-  color: #1fb5ad !important;
+  color: rgba(36, 63, 98, 0.56) !important;
 }
 
 .clock-row h1 {
@@ -4101,7 +4103,7 @@ ul.clock-category li a.active i {
 
 .weather-full-info .today-status i {
   font-size: 40px;
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 .weather-full-info .degree {
@@ -4202,7 +4204,7 @@ ul.clock-category li a.active i {
 }
 
 .prd-row p.terques {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 .prd-row .price {
@@ -4211,7 +4213,7 @@ ul.clock-category li a.active i {
 }
 
 .prd-row .price .amnt {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
   font-size: 25px;
   font-weight: 600;
 }
@@ -4286,7 +4288,7 @@ span.customSelect.changed {
 
 .timeline-messages h3 {
   margin-bottom: 30px;
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
   font-size: 16px;
   text-transform: uppercase;
   background: #fff;
@@ -4860,7 +4862,7 @@ tr.odd.gradeU td.sorting_1 {
 .full-width .nav .open>a,
 .full-width .nav .open>a:hover,
 .full-width .nav .open>a:focus {
-  background-color: #1FB5AD;
+  background-color: rgba(36, 63, 98, 0.56);
   text-decoration: none;
   color: #fff;
   transition: all 0.3s ease 0s;
@@ -4971,7 +4973,7 @@ tr.odd.gradeU td.sorting_1 {
   text-align: left;
   border-radius: 5px 0 0 5px;
   -webkit-border-radius: 5px 0 0 5px;
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 .lock-pwd {
@@ -4984,7 +4986,7 @@ tr.odd.gradeU td.sorting_1 {
   padding: 0 0 0 80px;
   border-radius: 0 5px 5px 0;
   -webkit-border-radius: 0 5px 5px 0;
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 .lock-pwd input {
@@ -5136,7 +5138,7 @@ tr.odd.gradeU td.sorting_1 {
 /*active and hover*/
 .breadcrumbs-alt a:hover:before,
 .breadcrumbs-alt a.current:before {
-  border-color: #1FB5AD #1FB5AD #1FB5AD rgba(0, 0, 0, 0);
+  border-color: rgba(36, 63, 98, 0.56) rgba(36, 63, 98, 0.56) rgba(36, 63, 98, 0.56) rgba(0, 0, 0, 0);
   border-style: solid;
   border-width: 1.5em 0 1.7em 1em;
   content: "";
@@ -5150,7 +5152,7 @@ tr.odd.gradeU td.sorting_1 {
 .breadcrumbs-alt a:hover:after,
 .breadcrumbs-alt a.current:after {
   border-bottom: 1.5em solid rgba(0, 0, 0, 0);
-  border-left: 1em solid #1FB5AD;
+  border-left: 1em solid rgba(36, 63, 98, 0.56);
   border-top: 1.5em solid rgba(0, 0, 0, 0);
   content: "";
   margin-top: -1.5em;
@@ -5162,7 +5164,7 @@ tr.odd.gradeU td.sorting_1 {
 
 .breadcrumbs-alt a:hover,
 .breadcrumbs-alt a.current {
-  background: #1FB5AD;
+  background: rgba(36, 63, 98, 0.56);
   color: #fff;
   float: left;
   font-size: 12px;
@@ -5211,7 +5213,7 @@ tr.odd.gradeU td.sorting_1 {
 .price-head h1 {
   font-size: 32px;
   font-weight: normal;
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 .pricing-table {
@@ -5233,7 +5235,7 @@ tr.odd.gradeU td.sorting_1 {
 }
 
 .most-popular .pricing-head {
-  background: #1fb5ad;
+  background: rgba(36, 63, 98, 0.56);
   border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
   position: relative;
@@ -5242,13 +5244,13 @@ tr.odd.gradeU td.sorting_1 {
 
 .most-popular .pricing-quote,
 .most-popular ul li i {
-  color: #1fb5ad;
+  color: rgba(36, 63, 98, 0.56);
 }
 
 .most-popular ul li {}
 
 .most-popular .price-actions .btn {
-  background: #1fb5ad !important;
+  background: rgba(36, 63, 98, 0.56) !important;
   cursor: pointer;
 }
 
@@ -6664,7 +6666,7 @@ div.tagsinput span.tag {
 }
 
 .default-theme {
-  background-color: #1FB5AD;
+  background-color: rgba(36, 63, 98, 0.56);
 }
 
 .blue-theme {

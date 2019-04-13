@@ -12,13 +12,14 @@ class Home extends Component {
         </Helmet>
         <nav class="navbar navbar-transparent navbar-black-links navbar-expand-lg">
           <div class="container">
+           <div class="navbar-header">
             <div class="row mt-30px">
               <Link class="navbar-brand w-25 pl-4 pb-2" to="/">
                 <img src={require("../../images/Kidslogo.png")} alt="logo" />
               </Link>
             </div>
             <button
-              class="navbar-toggler"
+              class="navbar-toggle"
               type="button"
               data-toggle="collapse"
               data-target="#main-navbar"
@@ -28,8 +29,9 @@ class Home extends Component {
             >
               <span class="fa fa-bars" />
             </button>
+           </div>
             <div class="collapse navbar-collapse" id="main-navbar">
-              <ul class="navbar-nav ml-auto">
+              <ul class="navbar-nav navbar-right ml-auto">
                 <li class="nav-item">
                   <Link class="nav-link" to="/" data-scroll-nav="1">
                     Home
@@ -55,7 +57,7 @@ class Home extends Component {
           <div class="container">
             <div class="row welcome-text sec-padding flex-center">
               <div class="col-md-6 mb-30px z-index-1">
-                <h1 class="mb-15px pr-5 mt-n5">
+                <h1 class="mb-15px padding-right-md mt-n5">
                   Get personalized Bedtime stories tailored just for your kids{" "}
                 </h1>
                 <p>
@@ -66,7 +68,7 @@ class Home extends Component {
                   <i class="fa fa-google-play" /> Download Our App
                 </a>
               </div>
-              <div class="col-md-6 text-center">
+              <div class="col-md-6 text-center main-img">
                 <img alt="imghome" src={require("../../images/baby.png")} />
               </div>
             </div>
