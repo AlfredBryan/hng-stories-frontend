@@ -48,7 +48,7 @@ class Category extends Component {
         console.log(res);
         if (res.status === 200) {
           this.setState({
-            message: "User Removed",
+            message: "Category Removed",
             selectedCatId: id
           });
           alert(`Category removed ${id}`);
