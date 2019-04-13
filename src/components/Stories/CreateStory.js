@@ -76,11 +76,17 @@ class CreateStory extends Component {
       }
     })
       .then(res => {
-        swal(`Successfully posted your story`);
+        swal({
+          icon: "success",
+          title: "Story Added Successfully"
+        });
       })
       .catch(error => {
         if (error) {
-          swal("Error Adding story");
+          swal({
+            icon: "warning",
+            title: "Error Adding story"
+          });
         }
       });
   };

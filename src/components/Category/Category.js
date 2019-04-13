@@ -58,7 +58,10 @@ class Category extends Component {
       })
       .catch(error => {
         if (error) {
-          swal(`Error: This category has stories ${id}`);
+          swal({
+            icon: "warning",
+            title: `Error: This category has stories ${id}`
+          });
         }
       });
   };

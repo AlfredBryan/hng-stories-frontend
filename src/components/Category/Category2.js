@@ -61,12 +61,18 @@ class Category2 extends React.Component {
       )
       .then(res => {
         if (res.status === 200) {
-          swal("Category Added");
+          swal({
+            icon: "success",
+            title: "Category Added"
+          });
         }
       })
       .catch(err => {
         if (err) {
-          swal("Category Aready exists");
+          swal({
+            icon: "warning",
+            title: "Category Already Exists"
+          });
         }
       });
   };

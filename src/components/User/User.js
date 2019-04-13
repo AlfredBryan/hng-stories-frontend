@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import axios from "axios";
+import swal from "sweetalert";
 
 const token = localStorage.getItem("token");
 
@@ -64,6 +65,14 @@ class User extends Component {
           });
           alert(`User removed ${id}`);
           window.location.reload();
+        }
+      })
+      .catch(error => {
+        if (error) {
+          swal({
+            icon: "warning",
+            title: "Error removing user"
+          });
         }
       });
   };

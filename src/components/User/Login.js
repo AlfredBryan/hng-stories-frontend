@@ -27,7 +27,10 @@ class Login extends Component {
           localStorage.setItem("token", res.data.data.token);
           this.props.history.replace("/profile");
         } else {
-          swal("You need to be admin to login Here");
+          swal({
+            icon: "warning",
+            title: "You need to be admin to login Here"
+          });
         }
       })
       .catch(error => {
