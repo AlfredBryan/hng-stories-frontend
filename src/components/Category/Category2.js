@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import swal from "sweetalert";
 import axios from "axios";
 
 const token = localStorage.getItem("token");
@@ -60,9 +61,14 @@ class Category2 extends React.Component {
       )
       .then(res => {
         if (res.status === 200) {
+          swal("Category Added");
         }
       })
-      .catch(err => {});
+      .catch(err => {
+        if (err) {
+          swal("Category Aready exists");
+        }
+      });
   };
 
   logOut = () => {

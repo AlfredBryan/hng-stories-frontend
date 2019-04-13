@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import swal from "sweetalert";
 import axios from "axios";
 
 const token = localStorage.getItem("token");
@@ -73,9 +74,15 @@ class CreateStory extends Component {
         "Content-Type": "multipart/form-data",
         Authorization: token
       }
-    }).then(res => {
-      alert(`Successfully posted your story`);
-    });
+    })
+      .then(res => {
+        swal(`Successfully posted your story`);
+      })
+      .catch(error => {
+        if (error) {
+          swal("Error Adding story");
+        }
+      });
   };
 
   render() {
