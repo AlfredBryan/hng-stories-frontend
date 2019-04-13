@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import swal from "sweetalert";
 import axios from "axios";
 
 const token = localStorage.getItem("token");
@@ -83,7 +84,7 @@ class Dashboard extends Component {
             {/*logo start */}
             <div className="brand">
               <a href="#" className="logo">
-                <img src={require("../../images/logo.png")} alt="" />
+                <img src={require("../../images/Kidslogo.png")} alt="" />
               </a>
               <div className="sidebar-toggle-box">
                 <div className="fa fa-bars" />

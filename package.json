@@ -12,7 +12,8 @@
     "react-helmet": "^5.2.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
-    "serve": "^11.0.0"
+    "serve": "^11.0.0",
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
     "dev": "react-scripts start",

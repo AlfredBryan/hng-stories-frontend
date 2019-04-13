@@ -92,7 +92,7 @@ class CreateStory extends Component {
             {/* logo start*/}
             <div class="brand">
               <a href="index.html" class="logo">
-                <img src={require("../../images/logo.png")} alt="" />
+                <img src={require("../../images/Kidslogo.png")} alt="" />
               </a>
               <div class="sidebar-toggle-box">
                 <div class="fa fa-bars" />
@@ -217,6 +217,7 @@ class CreateStory extends Component {
                               value={this.state.category}
                               class="form-control m-bot15"
                               onChange={this.handleChange}
+                              name="category"
                               required
                             >
                               {this.state.categories.map(category => {

@@ -24,7 +24,6 @@ class Profile extends Component {
         { headers: { Authorization: token } }
       )
       .then(res => {
-        console.log(res.data);
         this.setState({ user: res.data.data });
       });
   }
@@ -68,9 +67,7 @@ class Profile extends Component {
           }
         }
       },
-      this.setState({ loading: true })
     ).then(res => {
-      console.log(res);
       if (res.status === 200) {
       }
     });
@@ -94,7 +91,7 @@ class Profile extends Component {
             {/*logo start*/}
             <div class="brand">
               <a href="index.html" class="logo">
-                <img src={require("../../images/logo.png")} alt="" />
+                <img src={require("../../images/Kidslogo.png")} alt="" />
               </a>
               <div class="sidebar-toggle-box">
                 <div class="fa fa-bars" />
