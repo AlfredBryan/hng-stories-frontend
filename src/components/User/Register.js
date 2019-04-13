@@ -115,7 +115,7 @@ class Register extends Component {
 
                 <div class="registration">
                   Already have an account?
-                  <Link to="/">Login</Link>
+                  <Link to="/login">Login</Link>
                 </div>
               </div>
 

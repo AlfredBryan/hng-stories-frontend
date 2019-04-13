@@ -96,9 +96,16 @@ class Dashboard extends Component {
               <ul className="nav pull-right top-menu">
                 {/*user login dropdown start */}
                 <li className="dropdown">
-                    <img alt="" src={me.image} />
-                    <span className="username">{me.name}</span>
-                    <b className="caret" />
+                  <img alt="" src={me.image} />
+                  <span
+                    className="username"
+                    style={{
+                      fontFamily: "'Abril Fatface', cursive"
+                    }}
+                  >
+                    {me.name}
+                  </span>
+                  <b className="caret" />
                 </li>
                 {/*user login dropdown end */}
               </ul>
@@ -195,6 +202,10 @@ class Dashboard extends Component {
                               <button
                                 id="editable-sample_new"
                                 class="btn btn-primary"
+                                style={{
+                                  fontFamily: "'Cute Font', cursive",
+                                  fontSize: "30px"
+                                }}
                               >
                                 Add New Story <i class="fa fa-plus" />
                               </button>
@@ -216,10 +227,28 @@ class Dashboard extends Component {
                           <tbody>
                             {stories.map(story => (
                               <tr key={story._id}>
-                                <td>{story.title}</td>
-                                <td>{story.likes.length}</td>
+                                <td
+                                  style={{
+                                    fontFamily: "'Abril Fatface', cursive"
+                                  }}
+                                >
+                                  {story.title}
+                                </td>
+                                <td
+                                  style={{
+                                    fontFamily: "'Italiana', serif",
+                                    fontWeight: "600"
+                                  }}
+                                >
+                                  {story.likes.length}
+                                </td>
                                 <td>
                                   <button
+                                    style={{
+                                      backgroundColor: "white",
+                                      color: "red",
+                                      fontFamily: "'Cute Font', cursive"
+                                    }}
                                     onClick={() => {
                                       this.deleteStory(story._id);
                                     }}

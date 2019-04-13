@@ -22,9 +22,13 @@ class Login extends Component {
         password
       })
       .then(res => {
-        if (res.status === 200) {
+        if (res.data.data.admin === true) {
           localStorage.setItem("token", res.data.data.token);
           this.props.history.replace("/profile");
+        } else {
+          this.setState({
+            errorMessage: "Error:  Need to be admin to login Here"
+          });
         }
       })
       .catch(error => {

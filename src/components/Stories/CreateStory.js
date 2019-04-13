@@ -105,9 +105,16 @@ class CreateStory extends Component {
               <ul class="nav pull-right top-menu">
                 {/*user login dropdown start */}
                 <li class="dropdown">
-                    <img alt="" src={me.image} />
-                    <span class="username">{me.name}</span>
-                    <b class="caret" />
+                  <img alt="" src={me.image} />
+                  <span
+                    class="username"
+                    style={{
+                      fontFamily: "'Abril Fatface', cursive"
+                    }}
+                  >
+                    {me.name}
+                  </span>
+                  <b class="caret" />
                 </li>
                 {/*user login dropdown end */}
               </ul>
@@ -244,6 +251,10 @@ class CreateStory extends Component {
                           </div>
                           <div class="form-group">
                             <button
+                              style={{
+                                fontFamily: "'Cute Font', cursive",
+                                fontSize: "30px"
+                              }}
                               onClick={this.submitHandler}
                               type="submit"
                               class="btn btn-info"

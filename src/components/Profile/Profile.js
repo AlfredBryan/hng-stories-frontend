@@ -9,7 +9,9 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: ""
+      user: "",
+      name: "",
+      image: ""
     };
   }
 
@@ -22,6 +24,7 @@ class Profile extends Component {
         { headers: { Authorization: token } }
       )
       .then(res => {
+        console.log(res.data);
         this.setState({ user: res.data.data });
       });
   }
@@ -33,6 +36,44 @@ class Profile extends Component {
     const base64Url = token.split(".")[1];
     const base64 = base64Url.replace("-", "+").replace("_", "/");
     return JSON.parse(window.atob(base64));
+  };
+
+  handleImageChange = e => {
+    e.preventDefault();
+    let imageFile = e.target.files[0];
+    this.setState({ [e.target.name]: imageFile });
+  };
+
+  handlTextChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  updateInfo = e => {
+    e.preventDefault();
+    let user = this.parseJwt(token);
+    let userId = user._id;
+    const { name, image } = this.state;
+    const formData = new FormData();
+    formData.set("name", name);
+    formData.append("image", image);
+    axios(
+      {
+        method: "put",
+        url: `https://dragon-legend-5.herokuapp.com/api/v1/user/edit/${userId}`,
+        data: formData,
+        config: {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            Authorization: token
+          }
+        }
+      },
+      this.setState({ loading: true })
+    ).then(res => {
+      console.log(res);
+      if (res.status === 200) {
+      }
+    });
   };
 
   logOut = () => {
@@ -66,9 +107,16 @@ class Profile extends Component {
               <ul class="nav pull-right top-menu">
                 {/*user login dropdown start*/}
                 <li class="dropdown">
-                    <img alt="" src={user.image} />
-                    <span class="username">{user.name}</span>
-                    <b class="caret" />
+                  <img alt="" src={user.image} />
+                  <span
+                    class="username"
+                    style={{
+                      fontFamily: "'Abril Fatface', cursive"
+                    }}
+                  >
+                    {user.name}
+                  </span>
+                  <b class="caret" />
                 </li>
                 {/*user login dropdown end*/}
               </ul>
@@ -163,16 +211,21 @@ class Profile extends Component {
                           <h1>{user.name}</h1>
                           <span class="text-muted">Email: {user.email} </span>
                           <br />
-                          <Link to="/add_story" class="btn btn-primary">
+                          <Link
+                            style={{
+                              fontFamily: "'Cute Font', cursive",
+                              fontSize: "30px"
+                            }}
+                            to="/add_story"
+                            class="btn btn-primary"
+                          >
                             Add Story
                           </Link>
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="profile-statistics">
-                          <h1>1240</h1>
-                          <p>Stories</p>
-                          <h1>50</h1>
+                          <h1>{user.bookmark_count}</h1>
                           <p>BookMarks</p>
                         </div>
                       </div>
@@ -188,40 +241,37 @@ class Profile extends Component {
                     <header class="panel-heading new">Edit Profile</header>
                     <div class="panel-body">
                       <div class="position-center">
-                        <form>
+                        <form
+                          encType="multipart/form-data"
+                          onSubmit={this.updateInfo}
+                        >
                           <div class="form-group">
                             <input
                               type="text"
                               class="form-control"
-                              id="exampleInputEmail1"
+                              id="name"
+                              name="name"
                               placeholder="Enter Full Name"
+                              value={this.state.name}
+                              onChange={this.handlTextChange}
                             />
                           </div>
                           <div class="form-group">
+                            <label htmlFor="image">Change Profile Photo</label>
                             <input
-                              type="Email"
-                              class="form-control"
-                              id="exampleInputEmail1"
-                              placeholder="Enter Email"
+                              type="file"
+                              id="image"
+                              name="image"
+                              onChange={this.handleImageChange}
                             />
-                          </div>
-                          <div class="form-group">
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="Enter Phone Number"
-                            />
-                          </div>
-
-                          <div class="form-group">
-                            <label for="exampleInputFile">
-                              Change Profile Photo
-                            </label>
-                            <input type="file" id="exampleInputFile" />
                             <p class="help-block">Format: PNG, JPG (1MB)</p>
                           </div>
                           <div class="form-group">
-                            <button type="submit" class="btn btn-info">
+                            <button
+                              onClick={this.updateInfo}
+                              type="submit"
+                              class="btn btn-info"
+                            >
                               Submit
                             </button>
                           </div>

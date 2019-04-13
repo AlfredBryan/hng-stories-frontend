@@ -62,8 +62,7 @@ class Category2 extends React.Component {
         if (res.status === 200) {
         }
       })
-      .catch(err => {
-      });
+      .catch(err => {});
   };
 
   logOut = () => {
@@ -100,7 +99,14 @@ class Category2 extends React.Component {
                 {/*user login dropdown start*/}
                 <li class="dropdown">
                   <img alt="" src={me.image} />
-                  <span class="username">{me.name}</span>
+                  <span
+                    class="username"
+                    style={{
+                      fontFamily: "'Abril Fatface', cursive"
+                    }}
+                  >
+                    {me.name}
+                  </span>
                   <b class="caret" />
                 </li>
                 {/*user login dropdown end*/}
@@ -211,6 +217,10 @@ class Category2 extends React.Component {
                           </div>
                           <div className="form-group">
                             <button
+                              style={{
+                                fontFamily: "'Cute Font', cursive",
+                                fontSize: "20px"
+                              }}
                               onClick={this.handleSubmit}
                               type="submit"
                               className="btn btn-primary"

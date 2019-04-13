@@ -12,33 +12,45 @@ class Home extends Component {
         </Helmet>
         <nav class="navbar navbar-transparent navbar-black-links navbar-expand-lg">
           <div class="container">
-           <div class="navbar-header">
-            <div class="row mt-30px">
-              <Link class="navbar-brand w-25 pl-4 pb-2" to="/">
-                <img src={require("../../images/Kidslogo.png")} alt="logo" />
-              </Link>
+            <div class="navbar-header">
+              <div class="row mt-30px">
+                <Link class="navbar-brand w-25 pl-4 pb-2" to="/">
+                  <img src={require("../../images/Kidslogo.png")} alt="logo" />
+                </Link>
+              </div>
+              <button
+                class="navbar-toggle"
+                type="button"
+                data-toggle="collapse"
+                data-target="#main-navbar"
+                aria-controls="main-navbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="fa fa-bars" />
+              </button>
             </div>
-            <button
-              class="navbar-toggle"
-              type="button"
-              data-toggle="collapse"
-              data-target="#main-navbar"
-              aria-controls="main-navbar"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="fa fa-bars" />
-            </button>
-           </div>
             <div class="collapse navbar-collapse" id="main-navbar">
               <ul class="navbar-nav navbar-right ml-auto">
                 <li class="nav-item">
-                  <Link class="nav-link" to="/" data-scroll-nav="1">
+                  <Link
+                    style={{
+                      fontFamily: "'Cute Font', cursive",
+                      fontSize: "30px"
+                    }}
+                    class="nav-link"
+                    to="/"
+                    data-scroll-nav="1"
+                  >
                     Home
                   </Link>
                 </li>
                 <li class="nav-item log-in">
                   <Link
+                    style={{
+                      fontFamily: "'Cute Font', cursive",
+                      fontSize: "30px"
+                    }}
                     class="nav-link flex-center bg-blue radius-5px transition-3"
                     to="/login"
                   >
