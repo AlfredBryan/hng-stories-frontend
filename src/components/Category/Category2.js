@@ -62,8 +62,7 @@ class Category2 extends React.Component {
         if (res.status === 200) {
         }
       })
-      .catch(err => {
-      });
+      .catch(err => {});
   };
 
   logOut = () => {
@@ -82,26 +81,26 @@ class Category2 extends React.Component {
         </Helmet>
         <section id="container">
           {/*header start*/}
-          <header class="header fixed-top clearfix">
+          <header className="header fixed-top clearfix">
             {/*logo start*/}
-            <div class="brand">
-              <a href="index.html" class="logo">
+            <div className="brand">
+              <a href="index.html" className="logo">
                 <img src={require("../../images/logo.png")} alt="" />
               </a>
-              <div class="sidebar-toggle-box">
-                <div class="fa fa-bars" />
+              <div className="sidebar-toggle-box">
+                <div className="fa fa-bars" />
               </div>
             </div>
             {/*logo end*/}
 
-            <div class="top-nav clearfix">
+            <div className="top-nav clearfix">
               {/*search & user info start*/}
-              <ul class="nav pull-right top-menu">
+              <ul className="nav pull-right top-menu">
                 {/*user login dropdown start*/}
-                <li class="dropdown">
+                <li className="dropdown">
                   <img alt="" src={me.image} />
-                  <span class="username">{me.name}</span>
-                  <b class="caret" />
+                  <span className="username">{me.name}</span>
+                  <b className="caret" />
                 </li>
                 {/*user login dropdown end*/}
               </ul>
@@ -111,21 +110,21 @@ class Category2 extends React.Component {
           {/*header end*/}
           {/*sidebar start*/}
           <aside>
-            <div id="sidebar" class="nav-collapse">
+            <div id="sidebar" className="nav-collapse">
               {/*sidebar menu start*/}
-              <ul class="sidebar-menu" id="nav-accordion">
+              <ul className="sidebar-menu" id="nav-accordion">
                 <li>
                   <Link to="/dashboard">
-                    <i class="fa fa-dashboard" />
+                    <i className="fa fa-dashboard" />
                     <span>Dashboard</span>
                   </Link>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <Link to="/category">
-                    <i class="fa fa-laptop" />
+                    <i className="fa fa-laptop" />
                     <span>Categories</span>
                   </Link>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -134,12 +133,12 @@ class Category2 extends React.Component {
                     </li>
                   </ul>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <Link to="/dashboard">
-                    <i class="fa fa-book" />
+                    <i className="fa fa-book" />
                     <span>Stories</span>
                   </Link>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -150,13 +149,13 @@ class Category2 extends React.Component {
                 </li>
                 <li>
                   <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
+                    <i className="fa fa-bullhorn" />
                     <span>Profile </span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/user">
-                    <i class="fa fa-users" />
+                    <i className="fa fa-users" />
                     <span>Users </span>
                   </Link>
                 </li>
@@ -169,7 +168,7 @@ class Category2 extends React.Component {
                     }}
                     onClick={this.logOut}
                   >
-                    <i class="fa fa-user" />
+                    <i className="fa fa-user" />
                     <span>Log Out</span>
                   </button>
                 </li>
@@ -180,23 +179,23 @@ class Category2 extends React.Component {
           {/*sidebar end*/}
           {/*main content start*/}
           <section id="main-content">
-            <section class="wrapper">
-              <div class="row">
-                <div class="col-md-12">
-                  <section class="panel" />
+            <section className="wrapper">
+              <div className="row">
+                <div className="col-md-12">
+                  <section className="panel" />
                 </div>
               </div>{" "}
               {/* End*/}
               {/*start of header*/}
-              <div class="row">
-                <div class="col-lg-12">
-                  <section class="panel">
-                    <header class="panel-heading">Add Categories</header>
-                    <div class="panel-body">
-                      <div class="position-center">
+              <div className="row">
+                <div className="col-lg-12">
+                  <section className="panel">
+                    <header className="panel-heading">Add Categories</header>
+                    <div className="panel-body">
+                      <div className="position-center">
                         <form onSubmit={this.handleSubmit}>
                           <div className="form-group">
-                            <label for="createCategoryText">
+                            <label htmlFor="createCategoryText">
                               <h5 className="new">Add a new Category</h5>
                             </label>
                             <input

@@ -67,14 +67,14 @@ class Register extends Component {
           <title>Register</title>
         </Helmet>
         <div>
-          <div class="container">
-            <form class="form-signin" onSubmit={this.handleSubmit}>
-              <h2 class="form-signin-heading">Sign Up now</h2>
-              <div class="login-wrap">
-                <div class="user-login-info">
+          <div className="container">
+            <form className="form-signin" onSubmit={this.handleSubmit}>
+              <h2 className="form-signin-heading">Sign Up now</h2>
+              <div className="login-wrap">
+                <div className="user-login-info">
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Enter fullname"
                     name="name"
                     value={this.state.name}
@@ -82,7 +82,7 @@ class Register extends Component {
                   />
                   <input
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Enter email"
                     name="email"
                     value={this.state.email}
@@ -90,7 +90,7 @@ class Register extends Component {
                   />
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Enter designation"
                     name="designation"
                     value={this.state.designation}
@@ -98,7 +98,7 @@ class Register extends Component {
                   />
                   <input
                     type="password"
-                    class="form-control"
+                    className="form-control"
                     placeholder="Password"
                     name="password"
                     value={this.state.password}
@@ -107,13 +107,13 @@ class Register extends Component {
                 </div>
                 <button
                   onClick={this.handleSubmit}
-                  class="btn btn-lg btn-login btn-block"
+                  className="btn btn-lg btn-login btn-block"
                   type="submit"
                 >
                   Register
                 </button>
 
-                <div class="registration">
+                <div className="registration">
                   Already have an account?
                   <Link to="/">Login</Link>
                 </div>
@@ -125,22 +125,22 @@ class Register extends Component {
                 role="dialog"
                 tabindex="-1"
                 id="myModal"
-                class="modal fade"
+                className="modal fade"
               >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
+                <div className="modal-dialog">
+                  <div className="modal-content">
+                    <div className="modal-header">
                       <button
                         type="button"
-                        class="close"
+                        className="close"
                         data-dismiss="modal"
                         aria-hidden="true"
                       >
                         &times;
                       </button>
-                      <h4 class="modal-title">Forgot Password ?</h4>
+                      <h4 className="modal-title">Forgot Password ?</h4>
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
                       <p>
                         Enter your e-mail address below to reset your password.
                       </p>
@@ -149,18 +149,18 @@ class Register extends Component {
                         name="email"
                         placeholder="Email"
                         autocomplete="off"
-                        class="form-control placeholder-no-fix"
+                        className="form-control placeholder-no-fix"
                       />
                     </div>
-                    <div class="modal-footer">
+                    <div className="modal-footer">
                       <button
                         data-dismiss="modal"
-                        class="btn btn-default"
+                        className="btn btn-default"
                         type="button"
                       >
                         Cancel
                       </button>
-                      <button class="btn btn-success" type="button">
+                      <button className="btn btn-success" type="button">
                         Submit
                       </button>
                     </div>
