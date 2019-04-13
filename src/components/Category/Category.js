@@ -91,7 +91,7 @@ class Category extends Component {
             {/*logo start */}
             <div className="brand">
               <a href="index.html" className="logo">
-                <img src={require("../../images/Kidslogo.png")} alt="" />
+                <img src={require("../../images/logo.png")} alt="" />
               </a>
               <div className="sidebar-toggle-box">
                 <div className="fa fa-bars" />

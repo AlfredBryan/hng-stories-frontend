@@ -92,7 +92,7 @@ class CreateStory extends Component {
             {/* logo start*/}
             <div class="brand">
               <a href="index.html" class="logo">
-                <img src={require("../../images/Kidslogo.png")} alt="" />
+                <img src={require("../../images/logo.png")} alt="" />
               </a>
               <div class="sidebar-toggle-box">
                 <div class="fa fa-bars" />
