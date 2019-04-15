@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import axios from "axios";
 import swal from "sweetalert";
+import CustomNavBar from "../SideNav/CustomSideBar";
 
 const token = localStorage.getItem("token");
 
@@ -91,99 +92,7 @@ class User extends Component {
           <title>Users</title>
         </Helmet>
         <section id="container">
-          <header className="header fixed-top clearfix">
-            <div className="brand">
-              <a href="index.html" className="logo">
-                <img src={require("../../images/logo.png")} alt="" />
-              </a>
-              <div className="sidebar-toggle-box">
-                <div className="fa fa-bars" />
-              </div>
-            </div>
-            <div className="top-nav clearfix">
-              <ul className="nav pull-right top-menu">
-                <li className="dropdown">
-                  <img alt="" src={me.image} />
-                  <span
-                    className="username"
-                    style={{
-                      fontFamily: "'Abril Fatface', cursive"
-                    }}
-                  >
-                    {me.name}
-                  </span>
-                  <b className="caret" />
-                </li>
-              </ul>
-            </div>
-          </header>
-
-          <aside>
-            <div id="sidebar" className="nav-collapse">
-              <ul className="sidebar-menu" id="nav-accordion">
-                <li>
-                  <Link to="/dashboard">
-                    <i className="fa fa-dashboard" />
-                    <span>Dashboard</span>
-                  </Link>
-                </li>
-                <li className="sub-menu">
-                  <Link to="/category">
-                    <i className="fa fa-laptop" />
-                    <span>Categories</span>
-                  </Link>
-                  <ul className="sub">
-                    <li>
-                      <Link to="/add_category">Create</Link>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="sub-menu">
-                  <Link to="/dashboard">
-                    <i className="fa fa-book" />
-                    <span>Stories</span>
-                  </Link>
-                  <ul className="sub">
-                    <li>
-                      <a href="#">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link to="/profile">
-                    <i className="fa fa-bullhorn" />
-                    <span>Profile </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/user">
-                    <i className="fa fa-users" />
-                    <span>Users </span>
-                  </Link>
-                </li>
-                <li>
-                  <button
-                    style={{
-                      marginLeft: "15px",
-                      backgroundColor: "black",
-                      color: "white"
-                    }}
-                    onClick={this.logOut}
-                  >
-                    <i className="fa fa-user" />
-                    <span>Log Out</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </aside>
-
+          <CustomNavBar />
           <section id="main-content">
             <section className="wrapper">
               <div className="row">

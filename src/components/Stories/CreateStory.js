@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import swal from "sweetalert";
 import axios from "axios";
+import CustomNavBar from "../SideNav/CustomSideBar";
 
 const token = localStorage.getItem("token");
 
@@ -101,121 +102,27 @@ class CreateStory extends Component {
         </Helmet>
         <section id="container">
           {/*header start */}
-          <header className="header fixed-top clearfix">
-            {/* logo start*/}
-            <div className="brand">
-              <a href="index.html" className="logo">
-                <img src={require("../../images/logo.png")} alt="" />
-              </a>
-              <div className="sidebar-toggle-box">
-                <div className="fa fa-bars" />
-              </div>
-            </div>
-            {/*logo end */}
-
-            <div className="top-nav clearfix">
-              {/*search & user info start */}
-              <ul className="nav pull-right top-menu">
-                {/*user login dropdown start */}
-                <li className="dropdown">
-                  <img alt="" src={me.image} />
-                  <span
-                    className="username"
-                    style={{
-                      fontFamily: "'Abril Fatface', cursive"
-                    }}
-                  >
-                    {me.name}
-                  </span>
-                  <b className="caret" />
-                </li>
-                {/*user login dropdown end */}
-              </ul>
-              {/*search & user info end */}
-            </div>
-          </header>
-          {/*header end */}
-          <aside>
-            <div id="sidebar" className="nav-collapse">
-              {/*sidebar menu start */}
-              <ul className="sidebar-menu" id="nav-accordion">
-                <li>
-                  <a href="index.html">
-                    <i className="fa fa-dashboard" />
-                    <span>Dashboard</span>
-                  </a>
-                </li>
-                <li className="sub-menu">
-                  <Link to="/category">
-                    <i className="fa fa-laptop" />
-                    <span>Categories</span>
-                  </Link>
-                  <ul className="sub">
-                    <li>
-                      <a href="#">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="sub-menu">
-                  <Link to="/dashboard">
-                    <i className="fa fa-book" />
-                    <span>Stories</span>
-                  </Link>
-                  <ul className="sub">
-                    <li>
-                      <a href="#">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link to="/profile">
-                    <i className="fa fa-bullhorn" />
-                    <span>Profile </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/user">
-                    <i className="fa fa-users" />
-                    <span>Users </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/">
-                    <i className="fa fa-user" />
-                    <span>Log Out</span>
-                  </Link>
-                </li>
-              </ul>
-              {/* sidebar menu end*/}
-            </div>
-          </aside>
-          {/*sidebar end */}
+          <CustomNavBar />
           {/*main content start */}
-          <section id="main-content" className="">
-            <section className="wrapper">
+          <section id="main-content" class="">
+            <section class="wrapper">
               {/*page start */}
 
               {/*start of header */}
-              <div className="row">
-                <div className="col-lg-12">
-                  <section className="panel">
-                    <header className="panel-heading new">Add Story</header>
-                    <div className="panel-body">
-                      <div className="position-center">
+              <div class="row">
+                <div class="col-lg-12">
+                  <section class="panel">
+                    <header class="panel-heading new">Add Story</header>
+                    <div class="panel-body">
+                      <div class="position-center">
                         <form
                           encType="multipart/form-data"
                           onSubmit={this.submitHandler}
                         >
-                          <div className="form-group">
+                          <div class="form-group">
                             <input
                               type="text"
-                              className="form-control"
+                              class="form-control"
                               id="title"
                               name="title"
                               placeholder="Title"
@@ -224,11 +131,11 @@ class CreateStory extends Component {
                               required
                             />
                           </div>
-                          <div className="form-group">
-                            <label htmlFor="category">Select Category</label>
+                          <div class="form-group">
+                            <label for="category">Select Category</label>
                             <select
                               value={this.state.category}
-                              className="form-control m-bot15"
+                              class="form-control m-bot15"
                               onChange={this.handleChange}
                               name="category"
                               required
@@ -242,20 +149,20 @@ class CreateStory extends Component {
                               })}
                             </select>
                           </div>
-                          <div className="form-group">
-                            <label htmlFor="exampleInputFile">Add Image</label>
+                          <div class="form-group">
+                            <label for="exampleInputFile">Add Image</label>
                             <input
                               type="file"
                               id="image"
                               name="image"
                               onChange={this.handleImageChange}
                             />
-                            <p className="help-block">Format: PNG, JPG (1MB)</p>
+                            <p class="help-block">Format: PNG, JPG (1MB)</p>
                           </div>
-                          <div className="form-group">
-                            <label htmlFor="story">Story</label>
+                          <div class="form-group">
+                            <label for="story">Story</label>
                             <textarea
-                              className="form-control ckeditor"
+                              class="form-control ckeditor"
                               name="story"
                               rows="6"
                               onChange={this.handleChange}
@@ -263,7 +170,7 @@ class CreateStory extends Component {
                               required
                             />
                           </div>
-                          <div className="form-group">
+                          <div class="form-group">
                             <button
                               style={{
                                 fontFamily: "'Cute Font', cursive",
@@ -271,7 +178,7 @@ class CreateStory extends Component {
                               }}
                               onClick={this.submitHandler}
                               type="submit"
-                              className="btn btn-info"
+                              class="btn btn-info"
                             >
                               Submit
                             </button>

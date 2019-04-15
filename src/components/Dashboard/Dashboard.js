@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import swal from "sweetalert";
 import axios from "axios";
+import CustomSideBar from "../SideNav/CustomSideBar";
+import CustomNavBar from "../SideNav/CustomSideBar";
 
 const token = localStorage.getItem("token");
 
@@ -80,109 +82,7 @@ class Dashboard extends Component {
         </Helmet>
         <section id="container">
           {/* header start*/}
-          <header className="header fixed-top clearfix">
-            {/*logo start */}
-            <div className="brand">
-              <a href="#" className="logo">
-                <img src={require("../../images/logo.png")} alt="" />
-              </a>
-              <div className="sidebar-toggle-box">
-                <div className="fa fa-bars" />
-              </div>
-            </div>
-            {/*logo end */}
-
-            <div className="top-nav clearfix">
-              {/*search & user info start */}
-              <ul className="nav pull-right top-menu">
-                {/*user login dropdown start */}
-                <li className="dropdown">
-                  <img alt="" src={me.image} />
-                  <span
-                    className="username"
-                    style={{
-                      fontFamily: "'Abril Fatface', cursive"
-                    }}
-                  >
-                    {me.name}
-                  </span>
-                  <b className="caret" />
-                </li>
-                {/*user login dropdown end */}
-              </ul>
-              {/*search & user and info end */}
-            </div>
-          </header>
-          {/* header end*/}
-          {/*sidebar start */}
-          <aside>
-            <div id="sidebar" className="nav-collapse">
-              {/* sidebar menu start*/}
-              <ul className="sidebar-menu" id="nav-accordion">
-                <li>
-                  <a href="#">
-                    <i className="fa fa-dashboard" />
-                    <span>Dashboard</span>
-                  </a>
-                </li>
-                <li className="sub-menu">
-                  <Link to="/category">
-                    <i className="fa fa-laptop" />
-                    <span>Categories</span>
-                  </Link>
-                  <ul className="sub">
-                    <li>
-                      <a href="#">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="sub-menu">
-                  <Link to="/dashboard">
-                    <i className="fa fa-book" />
-                    <span>Stories</span>
-                  </Link>
-                  <ul className="sub">
-                    <li>
-                      <a href="/add_story">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link to="/profile">
-                    <i className="fa fa-bullhorn" />
-                    <span>Profile </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/user">
-                    <i className="fa fa-users" />
-                    <span>Users </span>
-                  </Link>
-                </li>
-                <li>
-                  <button
-                    style={{
-                      marginLeft: "15px",
-                      backgroundColor: "black",
-                      color: "white"
-                    }}
-                    onClick={this.logOut}
-                  >
-                    <i className="fa fa-user" />
-                    <span>Log Out</span>
-                  </button>
-                </li>
-              </ul>
-              {/*sidebar menu end */}
-            </div>
-          </aside>
-          {/*sidebar end */}
+          <CustomNavBar />
           {/* main content start*/}
           <section id="main-content">
             <section className="wrapper">

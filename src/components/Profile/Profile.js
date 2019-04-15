@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import axios from "axios";
+import CustomNavBar from "../SideNav/CustomSideBar";
 
 const token = localStorage.getItem("token");
 
@@ -55,19 +56,17 @@ class Profile extends Component {
     const formData = new FormData();
     formData.set("name", name);
     formData.append("image", image);
-    axios(
-      {
-        method: "put",
-        url: `https://dragon-legend-5.herokuapp.com/api/v1/user/edit/${userId}`,
-        data: formData,
-        config: {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: token
-          }
+    axios({
+      method: "put",
+      url: `https://dragon-legend-5.herokuapp.com/api/v1/user/edit/${userId}`,
+      data: formData,
+      config: {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: token
         }
-      },
-    ).then(res => {
+      }
+    }).then(res => {
       if (res.status === 200) {
       }
     });
@@ -87,112 +86,7 @@ class Profile extends Component {
           <title>DASHBOARD</title>
         </Helmet>
         <section id="container">
-          {/*header start*/}
-          <header className="header fixed-top clearfix">
-            {/*logo start*/}
-            <div className="brand">
-              <a href="index.html" className="logo">
-                <img src={require("../../images/logo.png")} alt="" />
-              </a>
-              <div className="sidebar-toggle-box">
-                <div className="fa fa-bars" />
-              </div>
-            </div>
-            {/*logo end*/}
-
-            <div className="top-nav clearfix">
-              {/*search & user info start*/}
-              <ul className="nav pull-right top-menu">
-                {/*user login dropdown start*/}
-                <li className="dropdown">
-                  <img alt="" src={user.image} />
-                  <span
-                    className="username"
-                    style={{
-                      fontFamily: "'Abril Fatface', cursive"
-                    }}
-                  >
-                    {user.name}
-                  </span>
-                  <b className="caret" />
-                </li>
-                {/*user login dropdown end*/}
-              </ul>
-              {/*search & user info end*/}
-            </div>
-          </header>
-          {/*header end*/}
-          {/*sidebar start*/}
-          <aside>
-            <div id="sidebar" className="nav-collapse">
-              {/*sidebar menu start*/}
-              <ul className="sidebar-menu" id="nav-accordion">
-                <li>
-                  <Link to="/dashboard">
-                    <i className="fa fa-dashboard" />
-                    <span>Dashboard</span>
-                  </Link>
-                </li>
-                <li className="sub-menu">
-                  <Link to="/category">
-                    <i className="fa fa-laptop" />
-                    <span>Categories</span>
-                  </Link>
-                  <ul className="sub">
-                    <li>
-                      <a href="#">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="sub-menu">
-                  <Link to="/dashboard">
-                    <i className="fa fa-book" />
-                    <span>Stories</span>
-                  </Link>
-                  <ul className="sub">
-                    <li>
-                      <a href="#">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link to="/profile">
-                    <i className="fa fa-bullhorn" />
-                    <span>Profile </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/user">
-                    <i className="fa fa-users" />
-                    <span>Users </span>
-                  </Link>
-                </li>
-
-                <li>
-                  <button
-                    style={{
-                      marginLeft: "15px",
-                      backgroundColor: "black",
-                      color: "white"
-                    }}
-                    onClick={this.logOut}
-                  >
-                    <i className="fa fa-user" />
-                    <span>Log Out</span>
-                  </button>
-                </li>
-              </ul>
-              {/*sidebar menu end*/}
-            </div>
-          </aside>
-          {/*sidebar end*/}
-          {/*main content start*/}
+          <CustomNavBar />
           <section id="main-content">
             <section className="wrapper">
               <div className="row">
