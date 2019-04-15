@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import swal from "sweetalert";
 import axios from "axios";
+import CustomNavBar from "../SideNav/CustomSideBar";
 
 const token = localStorage.getItem("token");
 
@@ -73,9 +75,21 @@ class CreateStory extends Component {
         "Content-Type": "multipart/form-data",
         Authorization: token
       }
-    }).then(res => {
-      alert(`Successfully posted your story`);
-    });
+    })
+      .then(res => {
+        swal({
+          icon: "success",
+          title: "Story Added Successfully"
+        });
+      })
+      .catch(error => {
+        if (error) {
+          swal({
+            icon: "warning",
+            title: "Error Adding story"
+          });
+        }
+      });
   };
 
   render() {
@@ -88,94 +102,7 @@ class CreateStory extends Component {
         </Helmet>
         <section id="container">
           {/*header start */}
-          <header class="header fixed-top clearfix">
-            {/* logo start*/}
-            <div class="brand">
-              <a href="index.html" class="logo">
-                <img src={require("../../images/logo.png")} alt="" />
-              </a>
-              <div class="sidebar-toggle-box">
-                <div class="fa fa-bars" />
-              </div>
-            </div>
-            {/*logo end */}
-
-            <div class="top-nav clearfix">
-              {/*search & user info start */}
-              <ul class="nav pull-right top-menu">
-                {/*user login dropdown start */}
-                <li class="dropdown">
-                    <img alt="" src={me.image} />
-                    <span class="username">{me.name}</span>
-                    <b class="caret" />
-                </li>
-                {/*user login dropdown end */}
-              </ul>
-              {/*search & user info end */}
-            </div>
-          </header>
-          {/*header end */}
-          <aside>
-            <div id="sidebar" class="nav-collapse">
-              {/*sidebar menu start */}
-              <ul class="sidebar-menu" id="nav-accordion">
-                <li>
-                  <a href="index.html">
-                    <i class="fa fa-dashboard" />
-                    <span>Dashboard</span>
-                  </a>
-                </li>
-                <li class="sub-menu">
-                  <Link to="/category">
-                    <i class="fa fa-laptop" />
-                    <span>Categories</span>
-                  </Link>
-                  <ul class="sub">
-                    <li>
-                      <a href="#">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="sub-menu">
-                  <Link to="/dashboard">
-                    <i class="fa fa-book" />
-                    <span>Stories</span>
-                  </Link>
-                  <ul class="sub">
-                    <li>
-                      <a href="#">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
-                    <span>Profile </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/user">
-                    <i class="fa fa-users" />
-                    <span>Users </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/">
-                    <i class="fa fa-user" />
-                    <span>Log Out</span>
-                  </Link>
-                </li>
-              </ul>
-              {/* sidebar menu end*/}
-            </div>
-          </aside>
-          {/*sidebar end */}
+          <CustomNavBar />
           {/*main content start */}
           <section id="main-content" class="">
             <section class="wrapper">
@@ -210,6 +137,7 @@ class CreateStory extends Component {
                               value={this.state.category}
                               class="form-control m-bot15"
                               onChange={this.handleChange}
+                              name="category"
                               required
                             >
                               {this.state.categories.map(category => {
@@ -244,6 +172,10 @@ class CreateStory extends Component {
                           </div>
                           <div class="form-group">
                             <button
+                              style={{
+                                fontFamily: "'Cute Font', cursive",
+                                fontSize: "30px"
+                              }}
                               onClick={this.submitHandler}
                               type="submit"
                               class="btn btn-info"

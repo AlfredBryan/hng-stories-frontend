@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import axios from "axios";
+import swal from "sweetalert";
+import CustomNavBar from "../SideNav/CustomSideBar";
 
 const token = localStorage.getItem("token");
 
@@ -65,6 +67,14 @@ class User extends Component {
           alert(`User removed ${id}`);
           window.location.reload();
         }
+      })
+      .catch(error => {
+        if (error) {
+          swal({
+            icon: "warning",
+            title: "Error removing user"
+          });
+        }
       });
   };
 
@@ -82,109 +92,23 @@ class User extends Component {
           <title>Users</title>
         </Helmet>
         <section id="container">
-          <header class="header fixed-top clearfix">
-            <div class="brand">
-              <a href="index.html" class="logo">
-                <img src={require("../../images/logo.png")} alt="" />
-              </a>
-              <div class="sidebar-toggle-box">
-                <div class="fa fa-bars" />
-              </div>
-            </div>
-
-            <div class="top-nav clearfix">
-              <ul class="nav pull-right top-menu">
-                <li class="dropdown">
-                    <img alt="" src={me.image} />
-                    <span class="username">{me.name}</span>
-                    <b class="caret" />
-                </li>
-              </ul>
-            </div>
-          </header>
-
-          <aside>
-            <div id="sidebar" class="nav-collapse">
-              <ul class="sidebar-menu" id="nav-accordion">
-                <li>
-                  <Link to="/dashboard">
-                    <i class="fa fa-dashboard" />
-                    <span>Dashboard</span>
-                  </Link>
-                </li>
-                <li class="sub-menu">
-                  <Link to="/category">
-                    <i class="fa fa-laptop" />
-                    <span>Categories</span>
-                  </Link>
-                  <ul class="sub">
-                    <li>
-                      <Link to="/add_category">Create</Link>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="sub-menu">
-                  <Link to="/dashboard">
-                    <i class="fa fa-book" />
-                    <span>Stories</span>
-                  </Link>
-                  <ul class="sub">
-                    <li>
-                      <a href="#">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
-                    <span>Profile </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/user">
-                    <i class="fa fa-users" />
-                    <span>Users </span>
-                  </Link>
-                </li>
-                <li>
-                  <button
-                    style={{
-                      marginLeft: "15px",
-                      backgroundColor: "black",
-                      color: "white"
-                    }}
-                    onClick={this.logOut}
-                  >
-                    <i class="fa fa-user" />
-                    <span>Log Out</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </aside>
-
+          <CustomNavBar />
           <section id="main-content">
-            <section class="wrapper">
-              <div class="row">
-                <div class="col-sm-12">
-                  <section class="panel">
-                    <header class="panel-heading">
-                      <h5 className="new">All Users</h5>
-                      <span class="tools pull-right">
-                        <a href="javascript:;" class="fa fa-chevron-down" />
+            <section className="wrapper">
+              <div className="row">
+                <div className="col-sm-12">
+                  <section className="panel">
+                    <header className="panel-heading">
+                      <h5 classNameName="new">All Users</h5>
+                      <span className="tools pull-right">
+                        <a href="javascript:;" className="fa fa-chevron-down" />
                       </span>
                     </header>
-                    <div class="panel-body">
-                      <div class="adv-table editable-table ">
-                        <div class="space15" />
+                    <div className="panel-body">
+                      <div className="adv-table editable-table ">
+                        <div className="space15" />
                         <table
-                          class="table table-striped table-hover table-bordered"
+                          className="table table-striped table-hover table-bordered"
                           id="editable-sample"
                         >
                           <thead>
@@ -198,13 +122,31 @@ class User extends Component {
                           </thead>
                           <tbody>
                             {users.map(user => (
-                              <tr class="" key={user._id}>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
+                              <tr className="" key={user._id}>
+                                <td
+                                  style={{
+                                    fontFamily: "'Abril Fatface', cursive"
+                                  }}
+                                >
+                                  {user.name}
+                                </td>
+                                <td
+                                  style={{
+                                    fontFamily: "'Italiana', serif",
+                                    fontWeight: "600"
+                                  }}
+                                >
+                                  {user.email}
+                                </td>
                                 <td>{user.phone} </td>
 
                                 <td>
                                   <button
+                                    style={{
+                                      backgroundColor: "white",
+                                      color: "red",
+                                      fontFamily: "'Cute Font', cursive"
+                                    }}
                                     onClick={() => {
                                       this.deleteUser(user._id);
                                     }}

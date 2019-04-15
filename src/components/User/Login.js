@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import swal from "sweetalert";
 import axios from "axios";
 
 class Login extends Component {
@@ -22,9 +23,14 @@ class Login extends Component {
         password
       })
       .then(res => {
-        if (res.status === 200) {
+        if (res.data.data.admin === true) {
           localStorage.setItem("token", res.data.data.token);
           this.props.history.replace("/profile");
+        } else {
+          swal({
+            icon: "warning",
+            title: "You need to be admin to login Here"
+          });
         }
       })
       .catch(error => {
@@ -56,7 +62,7 @@ class Login extends Component {
               <div class="user-login-info">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Email"
                   name="email"
                   value={this.state.email}
@@ -64,7 +70,7 @@ class Login extends Component {
                 />
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Password"
                   name="password"
                   value={this.state.password}
@@ -84,12 +90,12 @@ class Login extends Component {
               </div>
               <button
                 onClick={this.handleSubmit}
-                class="btn btn-lg btn-login btn-block"
+                className="btn btn-lg btn-login btn-block"
                 type="submit"
               >
                 Sign in
               </button>
-              <div class="registration">
+              <div className="registration">
                 Don't have an account yet?
                 <Link to="/register">Register</Link>
               </div>
