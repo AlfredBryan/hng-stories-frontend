@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import swal from "sweetalert";
 import axios from "axios";
-import CustomSideBar from "../SideNav/CustomSideBar";
 import CustomNavBar from "../SideNav/CustomSideBar";
 
 const token = localStorage.getItem("token");
@@ -80,7 +79,7 @@ class Dashboard extends Component {
           <meta charSet="utf-8" />
           <title>Stories</title>
         </Helmet>
-        <section id="container">
+        <section id="container" className="container-fluid">
           {/* header start*/}
           <CustomNavBar />
           {/* main content start*/}
@@ -90,28 +89,22 @@ class Dashboard extends Component {
                 <div className="col-sm-12">
                   <section className="panel">
                     <header className="panel-heading">
+                      <div className="btn-group btn-add">
+                        <Link to="/add_story">
+                          <button
+                            id="editable-sample_new"
+                            className="btn btn-primary "
+                          >
+                            Add New Story <i className="fa fa-plus" />
+                          </button>
+                        </Link>
+                      </div>
                       <h5 classNameName="new">All Stories</h5>
-                      <span className="tools pull-right">
-                        <a href="javascript:;" className="fa fa-chevron-down" />
-                      </span>
                     </header>
                     <div className="panel-body">
                       <div className="adv-table editable-table ">
                         <div className="clearfix">
-                          <div className="btn-group">
-                            <Link to="/add_story">
-                              <button
-                                id="editable-sample_new"
-                                className="btn btn-primary"
-                                style={{
-                                  fontFamily: "'Cute Font', cursive",
-                                  fontSize: "30px"
-                                }}
-                              >
-                                Add New Story <i className="fa fa-plus" />
-                              </button>
-                            </Link>
-                          </div>
+                          
                         </div>
                         <div className="space15" />
                         <table
@@ -129,9 +122,7 @@ class Dashboard extends Component {
                             {stories.map(story => (
                               <tr key={story._id}>
                                 <td
-                                  style={{
-                                    fontFamily: "'Abril Fatface', cursive"
-                                  }}
+                                 
                                 >
                                   {story.title}
                                 </td>
@@ -145,11 +136,8 @@ class Dashboard extends Component {
                                 </td>
                                 <td>
                                   <button
-                                    style={{
-                                      backgroundColor: "white",
-                                      color: "red",
-                                      fontFamily: "'Cute Font', cursive"
-                                    }}
+                                    className="btn btn-danger"
+                                    
                                     onClick={() => {
                                       this.deleteStory(story._id);
                                     }}

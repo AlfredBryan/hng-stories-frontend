@@ -12,7 +12,12 @@
   outline: none !important;
 }
 
+@media(max-width:420px){
+.lead-text h1{
+  font-size: 25px;
 
+  }
+}
 body {
   font-family: 'Poppins', sans-serif;
   background: #ffffff !important;
@@ -1193,7 +1198,7 @@ p.p-big {
   width: 100%;
   z-index: 999;
   padding: 0;
-  background-color: #fff;
+  /*background-color: #fff;*/
   font-weight: bold;
   font-family: "Poppins", Open Sans;
 }
@@ -1419,6 +1424,9 @@ p.p-big {
   min-height: 650px;
   font-family: "Poppins", Open Sans;
   color: #243F62;
+  max-height: 100%; 
+  position: fixed;
+  width: 100%;
 }
 
 .welcome-area .welcome-text p {

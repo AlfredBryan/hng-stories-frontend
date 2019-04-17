@@ -89,9 +89,9 @@ class Category extends Component {
           <meta charSet="utf-8" />
           <title>Category</title>
         </Helmet>
-        <section id="container">
+        <section id="container" className="container-fluid">
           {/* header start*/}
-         <CustomNavBar />
+          <CustomNavBar />
           {/* main content start*/}
           <section id="main-content">
             <section className="wrapper">
@@ -99,25 +99,21 @@ class Category extends Component {
                 <div className="col-sm-12">
                   <section className="panel">
                     <header className="panel-heading">
-                      <h5 className="new">All Categories</h5>
+                      <div className="btn-group btn-add">
+                        <Link to="/add_category">
+                          <button
+                            id="editable-sample_new"
+                            className="btn btn-primary "
+                          >
+                            Add New Category <i className="fa fa-plus" />
+                          </button>
+                        </Link>
+                      </div>
+                      <h5 classNameName="new">All Categories</h5>
                     </header>
                     <div className="panel-body">
                       <div className="adv-table editable-table ">
                         <div className="clearfix">
-                          <div className="btn-group">
-                            <Link to="/add_category">
-                              <button
-                                id="editable-sample_new"
-                                className="btn btn-primary"
-                                style={{
-                                  fontFamily: "'Cute Font', cursive",
-                                  fontSize: "30px"
-                                }}
-                              >
-                                Add New Category <i className="fa fa-plus" />
-                              </button>
-                            </Link>
-                          </div>
                         </div>
                         <div className="space15" />
                         <table
@@ -134,19 +130,13 @@ class Category extends Component {
                             {category.map(cat => (
                               <tr className="" key={cat._id}>
                                 <td
-                                  style={{
-                                    fontFamily: "'Abril Fatface', cursive"
-                                  }}
+                                  
                                 >
                                   {cat.name}
                                 </td>
                                 <td>
-                                  <button
-                                    style={{
-                                      backgroundColor: "white",
-                                      color: "red",
-                                      fontFamily: "'Cute Font', cursive"
-                                    }}
+                                  <button className="btn btn-danger btn-small"
+                                    
                                     onClick={() => {
                                       this.deleteCategory(cat._id);
                                     }}

@@ -1,3 +1,7 @@
-.sidenav {
-    background: black;
+.navbar {
+  color: rgba(36, 63, 98, 0.816) !important;
+
+}
+.profile-pic{
+	border-radius: 50%;
 }
