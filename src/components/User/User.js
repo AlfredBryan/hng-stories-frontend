@@ -102,7 +102,16 @@ class User extends Component {
                 <div className="col-sm-12">
                   <section className="panel">
                     <header className="panel-heading">
-                      <h5 classNameName="new">All Users</h5>
+                      <h5
+                        style={{
+                          color: "white",
+                          fontSize: "30px",
+                          fontFamily: "'Abril Fatface', cursive"
+                        }}
+                        classNameName="new"
+                      >
+                        All Users
+                      </h5>
                     </header>
                     <div className="panel-body">
                       <div className="adv-table editable-table ">

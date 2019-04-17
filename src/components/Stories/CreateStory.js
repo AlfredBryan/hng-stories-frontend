@@ -112,7 +112,14 @@ class CreateStory extends Component {
               <div class="row">
                 <div class="col-lg-12">
                   <section class="panel">
-                    <header style={{ color: "blue" }} class="panel-heading new">
+                    <header
+                      style={{
+                        color: "white",
+                        fontSize: "30px",
+                        fontFamily: "'Abril Fatface', cursive"
+                      }}
+                      class="panel-heading"
+                    >
                       Add Story
                     </header>
                     <div class="panel-body">

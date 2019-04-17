@@ -113,7 +113,16 @@ class Category extends Component {
                           </button>
                         </Link>
                       </div>
-                      <h5 classNameName="new">All Categories</h5>
+                      <h5
+                        style={{
+                          color: "white",
+                          fontSize: "30px",
+                          fontFamily: "'Abril Fatface', cursive"
+                        }}
+                        classNameName="new"
+                      >
+                        All Categories
+                      </h5>
                     </header>
                     <div className="panel-body">
                       <div className="adv-table editable-table ">
