@@ -1,3 +1,4 @@
+import "../../index.css";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -19,7 +20,7 @@ class Home extends Component {
                 </Link>
               </div>
               <button
-                className="navbar-toggle"
+                className="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
                 data-target="#main-navbar"

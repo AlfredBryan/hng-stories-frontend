@@ -29,8 +29,64 @@ body {
 
 ul li {
   list-style: none;
+  color: rgba(36, 63, 98, 0.56) !important;
+  font-weight: 600 !important;
 }
 
+
+.navbar .navbar-nav .nav-link{
+  color: rgba(36, 63, 98, 0.56);
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 0;
+  background-color: #fff !important;
+  font-weight: bold;
+  font-family: "Poppins", Open Sans;
+}
+.btn-add{
+  text-align: left;
+  float: right;
+  margin-bottom: 10px;
+}
+@media(min-width:760px){
+  .btn-add{
+    margin-right: 50px;
+  }
+}
+@media(max-width:760px){
+  .btn-add{
+    width: 100%;
+  }
+
+.navbar-dark .navbar-toggler-icon {
+  background-color: rgba(36, 63, 98, 0.76) !important;
+
+}
+
+
+.navbar .navbar-nav .nav-item {
+  padding: 10px 30px !important;
+
+  }
+}
+
+.navbar-dark .navbar-toggler-icon {
+  background-color: rgba(36, 63, 98, 0.76) !important;
+
+}
+
+
+.navbar .navbar-nav .nav-item {
+  padding: 10px 30px;
+
+  }
+.navbar-light .navbar-toggler {
+    margin-right: 30px;
+}
 a,
 a:hover,
 a:focus {
@@ -180,6 +236,7 @@ a:focus {
   -moz-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
+  color: #fff;
 }
 
 #sidebar ul li {
@@ -354,7 +411,7 @@ ul.sidebar-menu li a.active i {
 
 /*main content*/
 #main-content {
-  margin-left: 240px;
+  margin: 50px auto;
   -webkit-transition: all .3s ease-in-out;
   -moz-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
@@ -6982,4 +7039,8 @@ div.tagsinput span.tag {
   .horizontal-menu .navbar-nav>li {
     margin-bottom: 10px;
   }
+}
+.btn .btn-primary{
+    color: rgba(36, 63, 98, 0.56) !important;
+
 }

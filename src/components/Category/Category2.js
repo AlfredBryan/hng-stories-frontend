@@ -128,10 +128,6 @@ class Category2 extends React.Component {
                           </div>
                           <div className="form-group">
                             <button
-                              style={{
-                                fontFamily: "'Cute Font', cursive",
-                                fontSize: "20px"
-                              }}
                               onClick={this.handleSubmit}
                               type="submit"
                               className="btn btn-primary"

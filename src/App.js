@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import User from "./components/User/User";
 import Profile from "./components/Profile/Profile";
 import CreateStory from "./components/Stories/CreateStory";

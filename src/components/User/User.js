@@ -124,29 +124,19 @@ class User extends Component {
                             {users.map(user => (
                               <tr className="" key={user._id}>
                                 <td
-                                  style={{
-                                    fontFamily: "'Abril Fatface', cursive"
-                                  }}
+                                  
                                 >
                                   {user.name}
                                 </td>
                                 <td
-                                  style={{
-                                    fontFamily: "'Italiana', serif",
-                                    fontWeight: "600"
-                                  }}
+                                  
                                 >
                                   {user.email}
                                 </td>
                                 <td>{user.phone} </td>
 
                                 <td>
-                                  <button
-                                    style={{
-                                      backgroundColor: "white",
-                                      color: "red",
-                                      fontFamily: "'Cute Font', cursive"
-                                    }}
+                                  <button className="btn btn-danger"
                                     onClick={() => {
                                       this.deleteUser(user._id);
                                     }}

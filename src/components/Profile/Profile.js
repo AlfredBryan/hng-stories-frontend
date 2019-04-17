@@ -85,60 +85,64 @@ class Profile extends Component {
           <meta charSet="utf-8" />
           <title>DASHBOARD</title>
         </Helmet>
-        <section id="container">
+        <section id="container" className="container-fluid">
+
           <CustomNavBar />
           <section id="main-content">
             <section className="wrapper">
               <div className="row">
                 <div className="col-md-12">
-                  <section className="panel">
-                    <div className="panel-body profile-information">
-                      <div className="col-md-3">
-                        <div className="profile-pic text-center">
-                          <img src={user.image} alt="" />
+                  <div className="container">
+                      <div className="card-deck mb-3 text-center">
+                        <div className="card mb-4 shadow-sm">
+                          <div className="card-body">
+                            <div className="profile-pic text-center">
+                               <img src={user.image} alt="Profile Pix" />
+                             </div>
+                          </div>
                         </div>
-                      </div>
-                      <div className="col-md-6">
-                        <div className="profile-desk">
-                          <h1>{user.name}</h1>
-                          <span className="text-muted">
-                            Email: {user.email}{" "}
-                          </span>
-                          <br />
-                          <Link
-                            style={{
-                              fontFamily: "'Cute Font', cursive",
-                              fontSize: "30px"
-                            }}
-                            to="/add_story"
-                            className="btn btn-primary"
-                          >
-                            Add Story
-                          </Link>
+                        <div className="card mb-4 shadow-sm">
+                          <div className="card-body">
+                           <h5>{user.name}</h5>
+                              <span className="text-muted">
+                                Email: {user.email}{" "}
+                              </span>
+                              <br />
+                              <Link
+                                to="/add_story"
+                                className="btn btn-primary"
+                              >
+                                Add Story
+                              </Link>
+                          </div>
                         </div>
-                      </div>
-                      <div className="col-md-3">
-                        <div className="profile-statistics">
-                          <h1>{user.bookmark_count}</h1>
-                          <p>BookMarks</p>
+                        <div className="card mb-4 shadow-sm">
+                          <div className="card-body">
+                            <h5>{user.bookmark_count}</h5>
+                            <p>BookMarks</p>
+
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </section>
                 </div>
-              </div>{" "}
-              {/* End*/}
+              </div>
+           
               {/*start of header*/}
               <div className="row">
-                <div className="col-lg-12">
-                  <section className="panel">
-                    <header className="panel-heading new">Edit Profile</header>
-                    <div className="panel-body">
-                      <div className="position-center">
+                <div className="col-lg-8 pl-2"  style={{
+                                margin: "20px auto"
+                              }}>
+                  <div className="card-deck mb-3 text-center">
+                    <div className="card mb-6 shadow-sm">
+                      <div className="card-header">
+                        <h4 className="my-0 font-weight-normal">Edit Profile</h4>
+                      </div>
+                      <div className="card-body">
                         <form
                           encType="multipart/form-data"
                           onSubmit={this.updateInfo}
-                        >
+                          >
                           <div className="form-group">
                             <input
                               type="text"
@@ -164,7 +168,7 @@ class Profile extends Component {
                             <button
                               onClick={this.updateInfo}
                               type="submit"
-                              className="btn btn-info"
+                              className="btn btn-primary"
                             >
                               Submit
                             </button>
@@ -172,12 +176,13 @@ class Profile extends Component {
                         </form>
                       </div>
                     </div>
-                  </section>
+                  </div>
                 </div>
               </div>
             </section>
           </section>
         </section>
+
       </div>
     );
   }
