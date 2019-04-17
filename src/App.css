@@ -16,6 +16,9 @@ html {
   font-size: 30px;
   color: black;
 }
+.profile-pic{
+  border-radius: 50%;
+  }
 
 body {
   color: #767676;

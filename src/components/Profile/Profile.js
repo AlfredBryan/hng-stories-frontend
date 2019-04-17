@@ -98,7 +98,7 @@ class Profile extends Component {
                         <div className="card mb-4 shadow-sm">
                           <div className="card-body">
                             <div className="profile-pic text-center">
-                               <img src={user.image} alt="Profile Pix" />
+                               <img src={user.image} alt="Profile Pix" className="profile-pic" />
                              </div>
                           </div>
                         </div>

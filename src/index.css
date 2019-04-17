@@ -21,8 +21,6 @@
 body {
   font-family: 'Poppins', sans-serif;
   background: #ffffff !important;
-  max-height: 100%;
-  overflow: hidden;
 }
 
 .fa {
@@ -1426,6 +1424,9 @@ p.p-big {
   min-height: 650px;
   font-family: "Poppins", Open Sans;
   color: #243F62;
+  max-height: 100%; 
+  position: fixed;
+  width: 100%;
 }
 
 .welcome-area .welcome-text p {
