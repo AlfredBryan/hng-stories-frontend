@@ -55,11 +55,11 @@ class Login extends Component {
           <meta charSet="utf-8" />
           <title>Login</title>
         </Helmet>
-        <div class="container">
-          <form class="form-signin" onSubmit={this.handleSubmit}>
-            <h2 class="form-signin-heading">sign in now</h2>
-            <div class="login-wrap">
-              <div class="user-login-info">
+        <div className="container">
+          <form className="form-signin" onSubmit={this.handleSubmit}>
+            <h2 className="form-signin-heading">sign in now</h2>
+            <div className="login-wrap">
+              <div className="user-login-info">
                 <input
                   type="text"
                   className="form-control"

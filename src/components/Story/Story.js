@@ -61,8 +61,12 @@ class Dashboard extends Component {
             message: "Story Removed",
             selectedStoryId: id
           });
-          alert(`Story removed ${id}`);
-          window.location.reload();
+          swal({
+            icon: "success",
+            title: `Story Removed with id ${id}`
+          }).then(res => {
+            window.location.reload();
+          });
         }
       });
   };
@@ -103,9 +107,7 @@ class Dashboard extends Component {
                     </header>
                     <div className="panel-body">
                       <div className="adv-table editable-table ">
-                        <div className="clearfix">
-                          
-                        </div>
+                        <div className="clearfix" />
                         <div className="space15" />
                         <table
                           className="table table-striped table-hover table-bordered"
@@ -121,11 +123,7 @@ class Dashboard extends Component {
                           <tbody>
                             {stories.map(story => (
                               <tr key={story._id}>
-                                <td
-                                 
-                                >
-                                  {story.title}
-                                </td>
+                                <td>{story.title}</td>
                                 <td
                                   style={{
                                     fontFamily: "'Italiana', serif",
@@ -137,7 +135,6 @@ class Dashboard extends Component {
                                 <td>
                                   <button
                                     className="btn btn-danger"
-                                    
                                     onClick={() => {
                                       this.deleteStory(story._id);
                                     }}

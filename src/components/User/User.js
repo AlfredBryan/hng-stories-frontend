@@ -12,7 +12,6 @@ class User extends Component {
     super(props);
     this.state = {
       users: [],
-      me: "",
       selectedUserId: null
     };
   }
@@ -64,8 +63,12 @@ class User extends Component {
             message: "User Removed",
             selectedUserId: id
           });
-          alert(`User removed ${id}`);
-          window.location.reload();
+          swal({
+            icon: "success",
+            title: `User Removed with id ${id}`
+          }).then(res => {
+            window.location.reload();
+          });
         }
       })
       .catch(error => {
@@ -84,7 +87,7 @@ class User extends Component {
   };
 
   render() {
-    let { users, me } = this.state;
+    let { users } = this.state;
     return (
       <div>
         <Helmet>
@@ -120,20 +123,13 @@ class User extends Component {
                           <tbody>
                             {users.map(user => (
                               <tr className="" key={user._id}>
-                                <td
-                                  
-                                >
-                                  {user.name}
-                                </td>
-                                <td
-                                  
-                                >
-                                  {user.email}
-                                </td>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
                                 <td>{user.phone} </td>
 
                                 <td>
-                                  <button className="btn btn-danger"
+                                  <button
+                                    className="btn btn-danger"
                                     onClick={() => {
                                       this.deleteUser(user._id);
                                     }}

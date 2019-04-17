@@ -53,8 +53,12 @@ class Category extends Component {
             message: "Category Removed",
             selectedCatId: id
           });
-          alert(`Category removed ${id}`);
-          window.location.reload();
+          swal({
+            icon: "success",
+            title: `Category Removed with id  ${id}`
+          }).then(res => {
+            window.location.reload();
+          });
         }
       })
       .catch(error => {
@@ -113,8 +117,7 @@ class Category extends Component {
                     </header>
                     <div className="panel-body">
                       <div className="adv-table editable-table ">
-                        <div className="clearfix">
-                        </div>
+                        <div className="clearfix" />
                         <div className="space15" />
                         <table
                           className="table table-striped table-hover table-bordered"
@@ -129,14 +132,10 @@ class Category extends Component {
                           <tbody>
                             {category.map(cat => (
                               <tr className="" key={cat._id}>
-                                <td
-                                  
-                                >
-                                  {cat.name}
-                                </td>
+                                <td>{cat.name}</td>
                                 <td>
-                                  <button className="btn btn-danger btn-small"
-                                    
+                                  <button
+                                    className="btn btn-danger btn-small"
                                     onClick={() => {
                                       this.deleteCategory(cat._id);
                                     }}

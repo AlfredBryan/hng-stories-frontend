@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800%7cPoppins:100,200,300,400,500,600,700,800);
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800%7cPoppins:100,200,300,400,500,600,700,800");
 
 /*----------------------------------------------------
           01-global Style
@@ -12,15 +12,20 @@
   outline: none !important;
 }
 
-@media(max-width:420px){
-.lead-text h1{
-  font-size: 25px;
+#home-section {
+  background: white !important;
+}
+
+@media(max-width:420px) {
+  .lead-text h1 {
+    font-size: 25px;
 
   }
 }
+
 body {
   font-family: 'Poppins', sans-serif;
-  background: #ffffff !important;
+  background: #241e1e !important;
 }
 
 .fa {
@@ -1423,8 +1428,8 @@ p.p-big {
 .welcome-area {
   min-height: 650px;
   font-family: "Poppins", Open Sans;
-  color: #243F62;
-  max-height: 100%; 
+  color: #ffffff;
+  max-height: 100%;
   position: fixed;
   width: 100%;
 }

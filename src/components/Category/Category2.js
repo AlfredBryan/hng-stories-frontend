@@ -114,7 +114,9 @@ class Category2 extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                           <div className="form-group">
                             <label htmlFor="createCategoryText">
-                              <h5 className="new">Add a new Category</h5>
+                              <h5 style={{ color: "blue" }} className="new">
+                                Add a new Category
+                              </h5>
                             </label>
                             <input
                               onChange={this.handleChange}

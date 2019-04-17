@@ -112,7 +112,9 @@ class CreateStory extends Component {
               <div class="row">
                 <div class="col-lg-12">
                   <section class="panel">
-                    <header class="panel-heading new">Add Story</header>
+                    <header style={{ color: "blue" }} class="panel-heading new">
+                      Add Story
+                    </header>
                     <div class="panel-body">
                       <div class="position-center">
                         <form
@@ -156,6 +158,7 @@ class CreateStory extends Component {
                               id="image"
                               name="image"
                               onChange={this.handleImageChange}
+                              style={{ color: "white" }}
                             />
                             <p class="help-block">Format: PNG, JPG (1MB)</p>
                           </div>
@@ -173,7 +176,7 @@ class CreateStory extends Component {
                           <div class="form-group">
                             <button
                               style={{
-                                fontFamily: "'Cute Font'",
+                                fontFamily: "'Cute Font'"
                               }}
                               onClick={this.submitHandler}
                               type="submit"

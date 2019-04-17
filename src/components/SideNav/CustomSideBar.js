@@ -8,11 +8,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  NavLink
 } from "reactstrap";
 
 export default class CustomNavBar extends React.Component {
@@ -29,11 +25,21 @@ export default class CustomNavBar extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
+
+  logOut = () => {
+    localStorage.clear("token");
+  };
+
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md" fixed="top"
-        style={{background: "#fff !important"}}>
+        <Navbar
+          color="light"
+          light
+          expand="md"
+          fixed="top"
+          style={{ background: "#fff !important" }}
+        >
           <NavbarBrand href="/dashboard">
             <img src={require("../../images/logo.png")} alt="" />
           </NavbarBrand>
@@ -41,7 +47,7 @@ export default class CustomNavBar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/profile/">
+                <NavLink href="/profile">
                   <i style={{ fontSize: "20px" }} class="fa fa-dashboard" />
                   <span style={{ padding: "5px" }}>Dashboard</span>
                 </NavLink>
@@ -65,13 +71,7 @@ export default class CustomNavBar extends React.Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/profile">
-                  <i style={{ fontSize: "20px" }} class="fa fa-user" />
-                  <span style={{ padding: "5px" }}>Profile </span>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/login">
+                <NavLink onClick={this.logOut} href="/login">
                   <i style={{ fontSize: "20px" }} class="fa fa-sign-out" />
                   <span style={{ padding: "5px" }}>Logout </span>
                 </NavLink>
