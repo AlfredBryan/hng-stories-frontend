@@ -27,7 +27,6 @@ class Profile extends Component {
       )
       .then(res => {
         this.setState({ user: res.data.data });
-        console.log(res.data.data);
       });
   }
 
