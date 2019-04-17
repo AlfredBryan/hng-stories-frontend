@@ -91,7 +91,7 @@ class User extends Component {
           <meta charSet="utf-8" />
           <title>Users</title>
         </Helmet>
-        <section id="container">
+        <section id="container" className="container-fluid">
           <CustomNavBar />
           <section id="main-content">
             <section className="wrapper">
@@ -100,9 +100,6 @@ class User extends Component {
                   <section className="panel">
                     <header className="panel-heading">
                       <h5 classNameName="new">All Users</h5>
-                      <span className="tools pull-right">
-                        <a href="javascript:;" className="fa fa-chevron-down" />
-                      </span>
                     </header>
                     <div className="panel-body">
                       <div className="adv-table editable-table ">

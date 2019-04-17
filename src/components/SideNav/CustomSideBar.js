@@ -1,4 +1,5 @@
 import "../../App.css";
+import "./SideNav.css";
 import React from "react";
 import {
   Collapse,
@@ -31,7 +32,8 @@ export default class CustomNavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md" fixed="top">
+        <Navbar color="light" light expand="md" fixed="top"
+        style={{background: "#fff !important"}}>
           <NavbarBrand href="/dashboard">
             <img src={require("../../images/logo.png")} alt="" />
           </NavbarBrand>
@@ -39,7 +41,7 @@ export default class CustomNavBar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/dashboard/">
+                <NavLink href="/profile/">
                   <i style={{ fontSize: "20px" }} class="fa fa-dashboard" />
                   <span style={{ padding: "5px" }}>Dashboard</span>
                 </NavLink>
@@ -51,7 +53,7 @@ export default class CustomNavBar extends React.Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/story">
+                <NavLink href="/dashboard">
                   <i style={{ fontSize: "20px" }} class="fa fa-book" />
                   <span style={{ padding: "5px" }}>Stories</span>{" "}
                 </NavLink>
@@ -69,7 +71,7 @@ export default class CustomNavBar extends React.Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/logout">
+                <NavLink href="/login">
                   <i style={{ fontSize: "20px" }} class="fa fa-sign-out" />
                   <span style={{ padding: "5px" }}>Logout </span>
                 </NavLink>

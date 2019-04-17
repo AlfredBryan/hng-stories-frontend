@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import axios from "axios";
 import CustomNavBar from "../SideNav/CustomSideBar";
 
+
 const token = localStorage.getItem("token");
 
 class Profile extends Component {

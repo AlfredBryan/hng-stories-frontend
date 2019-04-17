@@ -110,9 +110,6 @@ class Category extends Component {
                         </Link>
                       </div>
                       <h5 classNameName="new">All Categories</h5>
-                      <span className="tools pull-right">
-                        <a href="javascript:;" className="fa fa-chevron-down" />
-                      </span>
                     </header>
                     <div className="panel-body">
                       <div className="adv-table editable-table ">

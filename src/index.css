@@ -12,10 +12,17 @@
   outline: none !important;
 }
 
+@media(max-width:420px){
+.lead-text h1{
+  font-size: 25px;
 
+  }
+}
 body {
   font-family: 'Poppins', sans-serif;
   background: #ffffff !important;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .fa {

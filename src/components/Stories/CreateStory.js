@@ -100,7 +100,7 @@ class CreateStory extends Component {
           <meta charSet="utf-8" />
           <title>Create Story</title>
         </Helmet>
-        <section id="container">
+        <section id="container" className="container-fluid">
           {/*header start */}
           <CustomNavBar />
           {/*main content start */}
@@ -173,12 +173,11 @@ class CreateStory extends Component {
                           <div class="form-group">
                             <button
                               style={{
-                                fontFamily: "'Cute Font', cursive",
-                                fontSize: "30px"
+                                fontFamily: "'Cute Font'",
                               }}
                               onClick={this.submitHandler}
                               type="submit"
-                              class="btn btn-info"
+                              class="btn btn-primary btn-sm"
                             >
                               Submit
                             </button>
