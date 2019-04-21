@@ -18,7 +18,7 @@ class Login extends Component {
     e.preventDefault();
     let { email, password } = this.state;
     axios
-      .post("https://dragon-legend-5.herokuapp.com/api/v1/user/login", {
+      .post("https:dragon-legend-5.herokuapp.com/api/v1/user/login", {
         email,
         password
       })

@@ -73,35 +73,156 @@ class Home extends Component {
             </Collapse>
           </Navbar>
 
-          <section
-            className="welcome-area md-padding p-relative o-hidden"
-            data-scroll-index="1"
-          >
-            <div className="container">
-              <div className="row welcome-text sec-padding flex-center">
-                <div className="col-md-6 mb-30px z-index-1 lead-text">
-                  <h1
-                    style={{ fontFamily: "'Oswald', sans-serif" }}
-                    className="mb-15px padding-right-md mt-n5 "
-                  >
-                    Get personalized Bedtime stories
-                    <br /> tailored just for your <br /> kids.{" "}
-                  </h1>
-                  <p>
-                    Read free bedtime stories, fairy tales, poems and short
-                    stories for kids
-                  </p>
-                  <a className="main-btn btn-3 mt-30px" href="#" data-lity>
-                    <i className="fa fa-google-play" /> Download Our App
-                  </a>
+          <section class="main-header main-2">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-lg-5">
+                  <div class="header-content">
+                    <h1 class="title">
+                      Get personalized Bedtime Stories
+                      <br />
+                      Tailored just for your kids{" "}
+                    </h1>
+
+                    <p class="text">
+                      Read free bedtime stories, fairy tales, poems and short
+                      stories for kids
+                    </p>
+
+                    <a
+                      href="https://www.dropbox.com/s/ukrz2nlje3tl6td/BedtimeStories.apk?dl=0"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="google-button"
+                    >
+                      <img src={require("../../img/play.svg")} alt="" />
+                      <span>Get it on</span> Google Play
+                    </a>
+                  </div>
                 </div>
-                <div className="col-md-6 text-right mr-n3 mt-n5 main-img">
-                  <img alt="imghome" src={require("../../images/baby.png")} />
+
+                <div class="col-12 col-lg-7 d-none d-lg-block">
+                  <div class="image">
+                    <img
+                      class="img-fluid"
+                      src={require("../../img/shape-3.svg")}
+                      alt="header"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="shape-1 bg-gray p-absolute" />
           </section>
+
+          <section class="features">
+            <div class="container">
+              <div class="section-header text-center">
+                <h4 class="section-text">
+                  Some Of Our
+                  <br />
+                  Amazing <span>features</span>
+                </h4>
+              </div>
+
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                  <div class="item">
+                    <img
+                      class="img-fluid"
+                      src={require("../../img/source/feature-1.png")}
+                      alt="BedTime Stories"
+                    />
+
+                    <h4 class="title">Amazing Stories</h4>
+
+                    <p class="text">
+                      Read amazing stories from different categories all over
+                      the world
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                  <div class="item">
+                    <img
+                      class="img-fluid"
+                      src={require("../../img/source/feature-2.png")}
+                      alt="BedTime Stories"
+                    />
+
+                    <h4 class="title">Create your own stories</h4>
+
+                    <p class="text">
+                      Contribute to stories read by millions of people
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+                  <div class="item">
+                    <img
+                      class="img-fluid"
+                      src={require("../../img/source/feature-1.png")}
+                      alt="BedTime Stories"
+                    />
+
+                    <h4 class="title">Modern And Creative</h4>
+
+                    <p class="text">
+                      Easily access stories for your kids wherever you are.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-30">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-lg-5 m-auto">
+                  <div class="section-header text-left">
+                    <p class="section-title">Who Are We</p>
+
+                    <h4 class="section-text">
+                      Bedtime
+                      <br />
+                      <span>Stories</span>
+                    </h4>
+
+                    <p class="section-description">
+                      Bedtime Stories is an app that gives parents a plethora of
+                      stories from around the world and from a wide range of
+                      categories. Through the app, parents can read stories to
+                      their kids, create their own stories and bookmark their
+                      favorite stories for future reading.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-7">
+                  <div class="mb-5">
+                    <img
+                      class="img-fluid"
+                      src={require("../../img/source/about.png")}
+                      alt="Work"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <footer class="footer pt-4">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 mt-3">
+                  <p class="copyright">
+                    &copy; 2019 BedTime Stories. All Rights Reversed.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </footer>
         </div>
       </div>
     );

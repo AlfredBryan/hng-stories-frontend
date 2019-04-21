@@ -29,7 +29,7 @@ class Register extends Component {
       is_premium
     } = this.state;
     axios
-      .post("https://dragon-legend-5.herokuapp.com/api/v1/user/register", {
+      .post("https:dragon-legend-5.herokuapp.com/api/v1/user/register", {
         name,
         email,
         designation,

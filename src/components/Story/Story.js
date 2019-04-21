@@ -22,6 +22,7 @@ class Dashboard extends Component {
       .get("https://dragon-legend-5.herokuapp.com/api/v1/story")
       .then(res => {
         this.setState({ stories: res.data.data.stories });
+        console.log(res.data.data);
       });
     this.getUser();
   }
@@ -125,21 +126,46 @@ class Dashboard extends Component {
                           <thead>
                             <tr>
                               <th>Story titles</th>
+                              <th>Story Author</th>
                               <th>Likes</th>
+                              <th>Dislikes</th>
                               <th>Delete</th>
                             </tr>
                           </thead>
                           <tbody>
                             {stories.map(story => (
                               <tr key={story._id}>
-                                <td>{story.title}</td>
                                 <td
                                   style={{
                                     fontFamily: "'Italiana', serif",
                                     fontWeight: "600"
                                   }}
                                 >
-                                  {story.likes.length}
+                                  {story.title}
+                                </td>
+                                <td
+                                  style={{
+                                    fontFamily: "'Italiana', serif",
+                                    fontWeight: "600"
+                                  }}
+                                >
+                                  {story.author}
+                                </td>
+                                <td
+                                  style={{
+                                    fontFamily: "'Italiana', serif",
+                                    fontWeight: "600"
+                                  }}
+                                >
+                                  {story.likes}
+                                </td>
+                                <td
+                                  style={{
+                                    fontFamily: "'Italiana', serif",
+                                    fontWeight: "600"
+                                  }}
+                                >
+                                  {story.dislikes}
                                 </td>
                                 <td>
                                   <button

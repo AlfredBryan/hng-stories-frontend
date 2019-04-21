@@ -12,6 +12,7 @@ class Category2 extends React.Component {
     super(props);
     this.state = {
       name: "",
+      image: "",
       me: ""
     };
   }
@@ -19,6 +20,12 @@ class Category2 extends React.Component {
   componentDidMount() {
     this.getUser();
   }
+
+  handleImageChange = e => {
+    e.preventDefault();
+    let imageFile = e.target.files[0];
+    this.setState({ [e.target.name]: imageFile });
+  };
 
   getUser = () => {
     let user = this.parseJwt(token);
@@ -48,18 +55,21 @@ class Category2 extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+
     const token = localStorage.getItem("token");
-    let { name } = this.state;
-    axios
-      .post(
-        "https://dragon-legend-5.herokuapp.com/api/v1/category/create",
-        {
-          name
-        },
-        {
-          headers: { Authorization: token }
-        }
-      )
+    const { name, image } = this.state;
+    const formData = new FormData();
+    formData.set("name", name);
+    formData.append("image", image);
+    axios({
+      method: "post",
+      url: "https://dragon-legend-5.herokuapp.com/api/v1/story/create",
+      data: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: token
+      }
+    })
       .then(res => {
         if (res.status === 200) {
           swal({
@@ -84,8 +94,6 @@ class Category2 extends React.Component {
   };
 
   render() {
-    let { me } = this.state;
-
     return (
       <div>
         <Helmet>
@@ -133,6 +141,17 @@ class Category2 extends React.Component {
                               id="name"
                               placeholder="Enter new category"
                             />
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleInputFile">Add Image</label>
+                            <input
+                              type="file"
+                              id="image"
+                              name="image"
+                              onChange={this.handleImageChange}
+                              style={{ color: "white" }}
+                            />
+                            <p class="help-block">Format: PNG, JPG (1MB)</p>
                           </div>
                           <div className="form-group">
                             <button
