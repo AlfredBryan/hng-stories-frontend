@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import swal from "sweetalert";
 import axios from "axios";
@@ -63,7 +62,7 @@ class Category2 extends React.Component {
     formData.append("image", image);
     axios({
       method: "post",
-      url: "https://dragon-legend-5.herokuapp.com/api/v1/story/create",
+      url: "https://dragon-legend-5.herokuapp.com/api/v1/category/create",
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",
