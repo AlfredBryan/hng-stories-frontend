@@ -90,7 +90,7 @@ class Home extends Component {
                     </p>
 
                     <a
-                      href="https://www.dropbox.com/s/ukrz2nlje3tl6td/BedtimeStories.apk?dl=0"
+                      href="https://play.google.com/store/apps/details?id=com.dragonlegend.kidstories"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="google-button"

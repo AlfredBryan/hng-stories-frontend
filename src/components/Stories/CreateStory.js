@@ -94,6 +94,7 @@ class CreateStory extends Component {
 
   render() {
     let { me } = this.state;
+    console.log(this.state.category);
     return (
       <div>
         <Helmet>
@@ -149,13 +150,10 @@ class CreateStory extends Component {
                               name="category"
                               required
                             >
-                              {this.state.categories.map(category => {
-                                return (
-                                  <option key={category._id}>
-                                    {category.name}
-                                  </option>
-                                );
-                              })}
+                              <option />
+                              <option value="Poem">Poem</option>
+                              <option value="Fantasy">Fantasy</option>
+                              <option value="Moral">Moral</option>
                             </select>
                           </div>
                           <div class="form-group">
